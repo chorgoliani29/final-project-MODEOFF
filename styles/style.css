@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* უძრავი ჰედერი */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.static-header {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.header-items-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+.header-item {
+  color: #333333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.header-item:hover {
+  color: #007bff;
+}
+
+.header-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* მობილურისთვის მორგება (Responsive Design) */
+@media (max-width: 768px) {
+  .header-items-wrapper {
+    padding: 12px 15px; /* ოდნავ შევამცირეთ გვერდითი დაშორებები */
+  }
+
+  .header-item {
+    font-size: 12px; /* შევამცირეთ ტექსტის ზომა ეკრანზე რომ თავისუფლად ჩაეტიოს */
+  }
+
+  .header-item img {
+    width: 20px; /* შევამცირეთ ლოგოების ზომაც პროპორციულად */
+    height: 20px;
+  }
+}
+
+/* მოძრავი ჰედერი */

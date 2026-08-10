@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350" viewBox="0 0 350 350" role="img" aria-label="MODE: OFF icon">
+  <!-- Exact original icon, with the wordmark removed. -->
+  <g transform="translate(11.5 -32.5)">
+    <g transform="translate(45 35)">
+      <path d="M72 40 L220 15 L220 255 L72 282 Z"
+            fill="none" stroke="#1A2C42" stroke-width="12"
+            stroke-linejoin="round"/>
+      <path d="M108 57 L196 42 L196 233 L108 249 Z"
+            fill="#48CFAE"/>
+      <path d="M72 40 L157 66 L157 248 L72 282 Z"
+            fill="#1A2C42"/>
+      <path d="M157 66 L196 42 L196 233 L157 248 Z"
+            fill="#EAFBF6"/>
+      <path d="M72 282 L157 248 L255 292 L160 330 Z"
+            fill="#48CFAE" opacity="0.92"/>
+      <rect x="112" y="143" width="10" height="47" rx="5" fill="#FFFFFF"/>
+      <rect x="132" y="140" width="10" height="47" rx="5" fill="#FFFFFF"/>
+    </g>
+  </g>
+</svg>
