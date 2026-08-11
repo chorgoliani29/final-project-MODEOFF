@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>MODE:OFF | მთავარი გვერდი</title>
-    <link rel="icon" type="image/svg" href="./logos/TABLOGO.svg" />
+    <link rel="icon" type="image/svg" href="./logos/tabIcon.svg" />
 
-    <!-- ძირითადი SEO მეტა-აღწერები -->
+    <!-- Core SEO meta descriptions -->
     <meta
       name="description"
       content="საიტის მოკლე და ტევადი აღწერა ქართულ ენაზე (150-160 სიმბოლომდე), რომელიც მიიზიდავს მომხმარებელს Google-იდან."
@@ -16,7 +16,7 @@
     <meta name="author" content="თქვენი კომპანიის სახელი" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph (Facebook, LinkedIn და სხვა სოციალური ქსელებისთვის) -->
+    <!-- Open Graph (for Facebook, LinkedIn, and other social media networks) -->
     <meta property="og:title" content="თქვენი საიტის სათაური" />
     <meta
       property="og:description"
@@ -30,54 +30,26 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ka_GE" />
 
-    <!-- ფავიკონი (ბრაუზერის პატარა იკონკა) -->
+    <!-- Favicon (small browser icon) -->
     <link rel="icon" type="image/png" href="/favicon.png" />
 
-    <link rel="stylesheet" href="./styles/style.css" />
-    <script src="./scripts/script.js" defer></script>
+    <link rel="stylesheet" href="./styles/index.css" />
+    <script src="./scripts/index.js" defer></script>
   </head>
   <body>
-    <!-- უძრავი ჰედერი -->
+    <!-- Header Component -->
+    <header class="site-header">
+      <div class="header-container">
+        <!-- Site Logo linking back to the home page -->
+        <a href="./index.html" class="logo">MODE<span>:</span>OFF</a>
 
-    <header class="static-header">
-      <div class="header-items-wrapper">
-        <!-- 1. ჩვენს შესახებ -->
-        <a href="./htmls/ჩვენს შესახებ.html" class="header-item"
-          >ჩვენს შესახებ</a
-        >
-
-        <!-- 2. Facebook ლოგო -->
-        <a
-          href="თქვენი_ფეისბუქის_ლინკი"
-          target="_blank"
-          aria-label="Facebook"
-          class="header-item"
-        >
-          <img src="./logos/facebook.svg" alt="Facebook" />
-        </a>
-
-        <!-- 3. Instagram ლოგო -->
-        <a
-          href="თქვენი_ინსტაგრამის_ლინკი"
-          target="_blank"
-          aria-label="Instagram"
-          class="header-item"
-        >
-          <img src="./logos/instagram.svg" alt="Instagram" />
-        </a>
-
-        <!-- 4. TikTok ლოგო -->
-        <a
-          href="თქვენი_ტიკტოკის_ლინკი"
-          target="_blank"
-          aria-label="TikTok"
-          class="header-item"
-        >
-          <img src="./logos/tiktok.svg" alt="TikTok" />
-        </a>
-
-        <!-- 5. უკუკავშირი -->
-        <a href="./htmls/უკუკავშირი.html" class="header-item">უკუკავშირი</a>
+        <!-- Navigation Menu with test links -->
+        <nav class="site-nav">
+          <a href="#test1">test1</a>
+          <a href="#test2">test2</a>
+          <a href="#test3">test3</a>
+          <a href="#test4">test4</a>
+        </nav>
       </div>
     </header>
   </body>

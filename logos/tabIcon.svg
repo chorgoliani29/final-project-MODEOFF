@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>MODE:OFF Tab Icon</title>
+  <g transform="translate(61 48) scale(1.42)">
+    <path fill="#202522" d="M42 35 205 10q9-1 9 8v252q0 9-9 11L42 316Z"/>
+    <path fill="#F7F5EF" d="m56 52 138-21v228l-138 30Z"/>
+    <path fill="#202522" d="m42 35 84 33v218l-84 30Z"/>
+    <path fill="#A8B8A0" d="m42 35 84 33 68-37L56 52Z"/>
+    <path fill="#EEE8DA" d="m126 68 68-37v228l-68 27Z"/>
+    <path fill="#A8B8A0" d="m42 316 84-33 88 36-95 40Z"/>
+    <rect fill="#F7F5EF" x="78" y="151" width="11" height="48" rx="5.5"/>
+    <rect fill="#F7F5EF" x="99" y="147" width="11" height="48" rx="5.5"/>
+  </g>
+</svg>

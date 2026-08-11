@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420">
+  <title>MODE:OFF Site Logo</title>
+  <g>
+    <!-- Open-door symbol -->
+    <path fill="#202522" d="M105 78 255 48q12-2 12 10v236q0 10-11 12l-151 30Z"/>
+    <path fill="#F7F5EF" d="m119 91 135-27v216l-135 30Z"/>
+    <path fill="#202522" d="m105 78 91 32v181l-91 45Z"/>
+    <path fill="#A8B8A0" d="m105 78 91 32 58-46-135 27Z"/>
+    <path fill="#EEE8DA" d="m196 110 58-46v216l-58 27Z"/>
+    <path fill="#A8B8A0" d="m105 336 91-45 104 47-100 42Z"/>
+    <!-- Pause mark -->
+    <rect fill="#F7F5EF" x="153" y="183" width="12" height="48" rx="6"/>
+    <rect fill="#F7F5EF" x="177" y="179" width="12" height="48" rx="6"/>
+
+    <!-- Wordmark -->
+    <text x="355" y="247" font-family="DM Sans,Inter,Arial,sans-serif"
+      font-size="88" font-weight="700" letter-spacing="1.5" fill="#202522">MODE</text>
+    <text x="627" y="247" font-family="DM Sans,Inter,Arial,sans-serif"
+      font-size="88" font-weight="700" fill="#657662">:</text>
+    <text x="687" y="247" font-family="DM Sans,Inter,Arial,sans-serif"
+      font-size="88" font-weight="700" letter-spacing="1.5" fill="#A8B8A0">OFF</text>
+  </g>
+</svg>
