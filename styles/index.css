@@ -1,4 +1,13 @@
-/* Header Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+
 .site-header {
   position: sticky;
   top: 0;
@@ -15,6 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 @media (min-width: 1200px) {
@@ -23,21 +33,17 @@
   }
 }
 
-/* Logo styling */
-.logo {
-  font-family: "DM Sans", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: #202522;
-  text-decoration: none;
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-.logo span {
-  color: #657662;
+.logo-img {
+  height: 100px;
+  width: auto;
 }
 
-/* Navigation styling */
 .site-nav {
   display: flex;
   gap: 32px;
@@ -47,9 +53,9 @@
   font-family: "Inter", sans-serif;
   font-size: 15px;
   color: #202522;
-  text-decoration: none;
   transition: color 250ms ease;
   position: relative;
+  white-space: nowrap;
 }
 
 .site-nav a:hover {
@@ -69,4 +75,22 @@
 
 .site-nav a:hover::after {
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 16px;
+  }
+
+  .site-nav {
+    gap: 16px;
+  }
+
+  .site-nav a {
+    font-size: 14px;
+  }
+
+  .logo-svg {
+    height: 20px;
+  }
 }
