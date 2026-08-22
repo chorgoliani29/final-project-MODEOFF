@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MODE:OFF icon">
+  <title>MODE:OFF Icon</title>
+  <g>
+    <!-- Outer doorway frame -->
+    <path d="M151 91 L421 38 L421 363 L151 458 Z" fill="#17201d"/>
+
+    <!-- Open door -->
+    <path d="M151 91 L270 131 L270 400 L151 458 Z" fill="#202925"/>
+
+    <!-- Interior wall -->
+    <path d="M270 131 L391 75 L391 330 L270 400 Z" fill="#f2efe5"/>
+
+    <!-- Upper angled plane -->
+    <path d="M151 91 L421 38 L391 75 L270 131 Z" fill="#b7c5b0"/>
+
+    <!-- Right frame -->
+    <path d="M391 75 L421 38 L421 363 L391 330 Z" fill="#202925"/>
+
+    <!-- Floor / threshold -->
+    <path d="M151 458 L270 400 L421 470 L274 512 Z" fill="#a9bba5"/>
+
+    <!-- Door handles -->
+    <rect x="205" y="246" width="11" height="43" rx="5.5" fill="#f2efe5"/>
+    <rect x="228" y="238" width="11" height="43" rx="5.5" fill="#f2efe5"/>
+  </g>
+</svg>

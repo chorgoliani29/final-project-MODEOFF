@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ka" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>გამოხატე შენი აზრი - განტვირთვის სივრცე</title>
+    <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        background-color: #f7f9f6;
+        color: #4a5568;
+        font-family: sans-serif;
+      }
+    </style>
+    <script src="../scripts/feedBack.js" defer></script>
+  </head>
+  <body class="bg-[#F4F6F4] text-[#2C3E50]">
+    <!-- ================= First Header (Static) ================= -->
+    <header
+      class="w-full bg-[#EAEFE9] border-b border-[#D8E2D6] py-4 px-6 transition-colors duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <!-- Left side: 3 logos with links -->
+        <div class="flex items-center gap-4">
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/facebook.svg" alt="facebook link" />
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/instagram.svg" alt="instagram link" />
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/tiktok.svg" alt="tikTok link" />
+          </a>
+        </div>
+
+        <!-- Center: Centered text -->
+        <div class="text-center">
+          <p class="text-sm tracking-wide text-[#5C6B5E] font-medium">
+            შეისვენე და აღიდგინე ენერგია
+          </p>
+        </div>
+
+        <!-- Right side: Links (in a box) and Dark/Light mode button -->
+        <div class="flex items-center gap-4">
+          <!-- Text embedded in a nice background frame -->
+          <nav
+            class="flex items-center gap-2 bg-[#DFE7DE] px-4 py-1.5 rounded-full shadow-inner"
+          >
+            <a
+              href="../views/aboutUs.html"
+              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50"
+              >ჩვენს შესახებ</a
+            >
+            <span class="text-[#A3B1A0]">•</span>
+            <a
+              href="../views/feedBack.html"
+              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50"
+              >გამოხატე შენი აზრი</a
+            >
+          </nav>
+
+          <!-- Dark / Light Mode -->
+          <button
+            id="themeToggle"
+            class="p-2 rounded-full bg-[#D8E2D6] hover:bg-[#C4D3C2] text-[#3B4A3F] transition shadow-sm cursor-pointer"
+            title="ფერის შეცვლა"
+          >
+            🌙
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= Second Header (Sticky / follows the page) ================= -->
+    <header
+      class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E2E8E0] shadow-sm transition-all duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <!-- Left side: Main logo -->
+        <a href="../index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-10 h-10 rounded-xl bg-[#E3EBE1] flex items-center justify-center group-hover:bg-[#D2DDD0] transition"
+          >
+            <img src="../logo/mainLogo.svg" alt="mainLogo" />
+          </div>
+          <span class="font-semibold text-lg text-[#3B4A3F] tracking-tight"
+            >MODE:OFF</span
+          >
+        </a>
+
+        <!-- Right side  -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
+          <a
+            href="../views/quizzes.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >ქვიზნი</a
+          >
+          <a
+            href="../views/eyeRest.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
+          >
+          <a
+            href="../views/games.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თამაშები</a
+          >
+          <a
+            href="../views/Idleness.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >უსაქმურობა</a
+          >
+          <a
+            href="../views/simplifyYourLife.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >გაიმარტივე ცხოვრება</a
+          >
+          <a
+            href="../views/whatToEat.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >რა ვჭამო?</a
+          >
+        </nav>
+
+        <!-- Mobile menu button -->
+        <div class="lg:hidden flex items-center">
+          <button class="p-2 text-[#556353] hover:bg-[#F0F4EF] rounded-lg">
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= feedBack ================= -->
+    <main class="max-w-xl mx-auto px-6 py-16">
+      <!-- title -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl font-light text-[#2C3E2B] mb-2">
+          გამოხატე შენი აზრი
+        </h1>
+        <p class="text-[#6C7A6A] text-sm">
+          შენი გამოხმაურება გვეხმარება გავხდეთ უკეთესები. გაგვიზიარე შენი
+          მოსაზრება!
+        </p>
+      </div>
+
+      <!-- form card -->
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#EBEFEA]">
+        <!-- Form to connect to a Google Form -->
+        <form
+          id="feedbackForm"
+          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScxkxbqCH9VZymZIDk6Vzu7tfuqcav9ZmmJ5iF0jQT-DpxwyQ/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          class="space-y-5"
+        >
+          <!-- 1. name -->
+          <div>
+            <label
+              class="block text-xs font-semibold text-[#5C6B5E] uppercase tracking-wider mb-2"
+              >სახელი</label
+            >
+            <input
+              type="text"
+              name="entry.1262327055"
+              placeholder="შენი სახელი..."
+              class="w-full px-4 py-3 rounded-xl border border-[#D8E2D6] bg-[#F9FBF8] text-[#3B4A3F] focus:outline-none focus:border-[#8FA38D] transition text-sm"
+            />
+          </div>
+
+          <!-- 2. mail -->
+          <div>
+            <label
+              class="block text-xs font-semibold text-[#5C6B5E] uppercase tracking-wider mb-2"
+              >მეილი
+              <span class="font-normal text-[#95A593]"
+                >(არასავალდებულო)</span
+              ></label
+            >
+            <input
+              type="email"
+              name="entry.135671716"
+              placeholder="your@email.com"
+              class="w-full px-4 py-3 rounded-xl border border-[#D8E2D6] bg-[#F9FBF8] text-[#3B4A3F] focus:outline-none focus:border-[#8FA38D] transition text-sm"
+            />
+          </div>
+
+          <!-- 3. What would you tell us? (With strict validation) -->
+          <div>
+            <label
+              class="block text-xs font-semibold text-[#5C6B5E] uppercase tracking-wider mb-2"
+              >რას გვეტყოდი? <span class="text-red-400">*</span></label
+            >
+            <textarea
+              id="messageInput"
+              name="entry.159739580"
+              rows="4"
+              placeholder="დაწერე შენი აზრი აქ..."
+              class="w-full px-4 py-3 rounded-xl border border-[#D8E2D6] bg-[#F9FBF8] text-[#3B4A3F] focus:outline-none focus:border-[#8FA38D] transition text-sm resize-none"
+            ></textarea>
+            <!-- Error text -->
+            <p id="errorText" class="text-xs text-red-500 mt-1 hidden">
+              გთხოვთ, შეავსოთ ეს ველი („რას გვეტყოდი“), სანამ გაგზავნით.
+            </p>
+          </div>
+
+          <!-- button -->
+          <button
+            type="submit"
+            class="w-full bg-[#3B4A3F] text-white py-3.5 rounded-xl font-medium hover:bg-[#2C382A] transition shadow-sm cursor-pointer text-sm"
+          >
+            გაგზავნა
+          </button>
+        </form>
+
+        <!-- The message will be sent successfully. -->
+        <div id="successMessage" class="hidden text-center py-8 space-y-3">
+          <div class="text-4xl">🌿</div>
+          <h3 class="text-lg font-medium text-[#3B4A3F]">
+            მადლობა გამოხმაურებისთვის!
+          </h3>
+          <p class="text-xs text-[#6C7A6A]">შენი აზრი წარმატებით გაიგზავნა.</p>
+          <button
+            onclick="resetForm()"
+            class="mt-4 text-xs bg-[#EAEFE9] text-[#3B4A3F] px-4 py-2 rounded-lg hover:bg-[#D8E2D6] transition"
+          >
+            ახლის გაგზავნა
+          </button>
+        </div>
+
+        <!-- Hidden iframe to safely receive the response (to prevent page redirection) -->
+        <iframe
+          name="hidden_iframe"
+          id="hidden_iframe"
+          style="display: none"
+          onload="
+            if (submitted) {
+              showSuccess();
+            }
+          "
+        ></iframe>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer
+      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"
+    >
+      <p>© 2026 სიმშვიდის სივრცე. ყველა უფლება დაცულია.</p>
+    </footer>
+  </body>
+</html>
