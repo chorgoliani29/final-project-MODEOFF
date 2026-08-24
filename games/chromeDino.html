@@ -1,25 +1,16 @@
 <!doctype html>
-<html lang="ka" class="scroll-smooth">
+<html lang="ka">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>უსაქმურობა - განტვირთვის სივრცე</title>
+    <title>Chrome DINO - თამაშები</title>
     <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-      body {
-        background-color: #f7f9f6;
-        color: #4a5568;
-        font-family: sans-serif;
-      }
-    </style>
-    <script src="../scripts/ldleness.js" defer></script>
+    <script src="./chromeDino.js" defer></script>
     <script>
-      // Check localStorage immediately on page load to prevent flashing
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.style.backgroundColor = "#1A211C";
-        document.body.style.color = "#E2E8E0";
-      }
+      tailwind.config = {
+        darkMode: "class",
+      };
     </script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
@@ -144,12 +135,75 @@
         </nav>
       </div>
     </header>
-    <div class="h-screen flex flex-col items-center pt-20">
-      <h1 class="text-4xl font-light text-[#2C3E2B] mb-6">
-        შიგთავსი მალე დაემატება
-      </h1>
-    </div>
-    <!-- footer -->
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center justify-center px-4 py-2 flex-grow">
+      <div
+        class="max-w-4xl w-full bg-white dark:bg-[#324338] rounded-3xl shadow-md p-6 text-center border border-[#EBEFEA] dark:border-[#42574A] transition-colors duration-300"
+      >
+        <h1 class="text-2xl font-bold mb-1 text-[#3B4A3F] dark:text-[#F0F4F0]">
+          Chrome Dino
+        </h1>
+        <p class="text-xs text-[#5C6B5E] dark:text-[#C5D9C3] mb-4">
+          დააჭირეთ Space-ს ან ეკრანს გადასახტომად
+        </p>
+
+        <!-- Scoreboard -->
+        <div
+          class="flex justify-between items-center mb-4 px-4 py-2.5 bg-[#F9FBF9] dark:bg-[#232F27] rounded-2xl text-sm font-semibold border border-[#EBEFEA] dark:border-[#42574A]"
+        >
+          <span class="text-[#5C6B5E] dark:text-[#C5D9C3]"
+            >ქულა:
+            <strong id="score" class="text-[#3B4A3F] dark:text-[#F0F4F0]"
+              >00000</strong
+            ></span
+          >
+          <span class="text-[#5C6B5E] dark:text-[#C5D9C3]"
+            >რეკორდი:
+            <strong id="high-score" class="text-[#3B4A3F] dark:text-[#F0F4F0]"
+              >00000</strong
+            ></span
+          >
+        </div>
+
+        <!-- Game Canvas Area -->
+        <div class="relative flex justify-center mb-4">
+          <canvas
+            id="dinoCanvas"
+            width="700"
+            height="320"
+            class="bg-[#F9FBF9] dark:bg-[#1E2721] rounded-2xl shadow-inner border border-[#EBEFEA] dark:border-[#42574A] cursor-pointer w-full max-w-full h-auto"
+          ></canvas>
+
+          <!-- Game Over Overlay -->
+          <div
+            id="game-over"
+            class="hidden absolute inset-0 bg-white/70 dark:bg-black/50 backdrop-blur-[2px] rounded-2xl flex flex-col items-center justify-center"
+          >
+            <h2
+              class="text-xl font-bold mb-3 text-[#3B4A3F] dark:text-white tracking-wide"
+            >
+              თამაში დასრულდა
+            </h2>
+            <button
+              onclick="resetGame()"
+              class="bg-[#3B4A3F] hover:bg-[#2C3E2B] dark:bg-[#5C7062] dark:hover:bg-[#4A5A4F] text-white px-6 py-2.5 rounded-xl transition-colors font-medium cursor-pointer shadow-sm text-xs"
+            >
+              ↻ თავიდან ცდა
+            </button>
+          </div>
+        </div>
+
+        <button
+          onclick="resetGame()"
+          id="start-btn"
+          class="w-full bg-[#3B4A3F] hover:bg-[#2C3E2B] dark:bg-[#5C7062] dark:hover:bg-[#4A5A4F] text-white py-3 rounded-xl transition-colors font-semibold cursor-pointer shadow-sm text-xs"
+        >
+          თამაშის დაწყება
+        </button>
+      </div>
+    </main>
+    <!-- Footer -->
     <footer
       class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"
     >

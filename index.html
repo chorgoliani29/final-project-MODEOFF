@@ -14,6 +14,13 @@
       }
     </style>
     <script src="./scripts/index.js" defer></script>
+    <script>
+      // Check localStorage immediately on page load to prevent flashing
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.style.backgroundColor = "#1A211C";
+        document.body.style.color = "#E2E8E0";
+      }
+    </script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -135,13 +142,6 @@
             >რა ვჭამო?</a
           >
         </nav>
-
-        <!-- Mobile menu button -->
-        <div class="lg:hidden flex items-center">
-          <button class="p-2 text-[#556353] hover:bg-[#F0F4EF] rounded-lg">
-            ☰
-          </button>
-        </div>
       </div>
     </header>
 

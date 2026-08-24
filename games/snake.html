@@ -1,25 +1,16 @@
 <!doctype html>
-<html lang="ka" class="scroll-smooth">
+<html lang="ka">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>უსაქმურობა - განტვირთვის სივრცე</title>
+    <title>Snake - თამაშები</title>
     <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-      body {
-        background-color: #f7f9f6;
-        color: #4a5568;
-        font-family: sans-serif;
-      }
-    </style>
-    <script src="../scripts/ldleness.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./snake.js" defer></script>
     <script>
-      // Check localStorage immediately on page load to prevent flashing
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.style.backgroundColor = "#1A211C";
-        document.body.style.color = "#E2E8E0";
-      }
+      tailwind.config = {
+        darkMode: "class",
+      };
     </script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
@@ -144,12 +135,85 @@
         </nav>
       </div>
     </header>
-    <div class="h-screen flex flex-col items-center pt-20">
-      <h1 class="text-4xl font-light text-[#2C3E2B] mb-6">
-        შიგთავსი მალე დაემატება
-      </h1>
-    </div>
-    <!-- footer -->
+
+    <!-- Main Content / Game Area -->
+    <main class="flex flex-col items-center justify-center px-4 py-4 flex-grow">
+      <div class="text-center mb-3">
+        <h1 class="text-2xl font-bold text-[#3B4A3F] dark:text-[#F0F4F0] mb-1">
+          Snake
+        </h1>
+        <p class="text-xs text-[#5C6B5E] dark:text-[#C5D9C3]">
+          მართე ისრებით (Arrows) ან W, A, S, D კლავიშებით
+        </p>
+      </div>
+
+      <!-- Scoreboard & Wall Mode Option -->
+      <div
+        class="flex flex-wrap justify-center gap-4 mb-3 text-sm font-semibold items-center"
+      >
+        <div
+          class="bg-white dark:bg-[#324338] px-4 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm"
+        >
+          ქულა:
+          <span id="score" class="text-[#3B4A3F] dark:text-[#F0F4F0]">0</span>
+        </div>
+        <div
+          class="bg-white dark:bg-[#324338] px-4 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm"
+        >
+          რეკორდი:
+          <span id="highScore" class="text-[#3B4A3F] dark:text-[#F0F4F0]"
+            >0</span
+          >
+        </div>
+        <!-- Wall Mode Toggle Switch -->
+        <div
+          class="bg-white dark:bg-[#324338] px-3 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm flex items-center gap-2"
+        >
+          <span class="text-xs text-[#5C6B5E] dark:text-[#C5D9C3]"
+            >კედელში გასვლა:</span
+          >
+          <button
+            id="wallToggle"
+            class="w-10 h-5 bg-[#D8E2D6] dark:bg-[#232F27] rounded-full relative transition-colors duration-200 cursor-pointer focus:outline-none"
+          >
+            <div
+              id="wallToggleCircle"
+              class="w-4 h-4 bg-[#3B4A3F] dark:bg-[#C5D9C3] rounded-full absolute top-0.5 left-0.5 transition-transform duration-200"
+            ></div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Game Board (Canvas) -->
+      <div
+        class="relative bg-white dark:bg-[#324338] p-3 rounded-3xl border border-[#EBEFEA] dark:border-[#42574A] shadow-md"
+      >
+        <canvas
+          id="snakeCanvas"
+          width="400"
+          height="400"
+          class="rounded-2xl bg-[#F9FBF9] dark:bg-[#1E2721] block"
+        ></canvas>
+
+        <!-- Game Overlay / Start Screen -->
+        <div
+          id="gameOverlay"
+          class="absolute inset-0 bg-black/40 backdrop-blur-[2px] rounded-3xl flex flex-col items-center justify-center text-white transition-opacity"
+        >
+          <h2 id="overlayText" class="text-xl font-bold mb-3">
+            დააჭირე დაწყებას
+          </h2>
+          <button
+            id="startBtn"
+            class="px-6 py-2.5 rounded-xl bg-[#3B4A3F] hover:bg-[#2C3E2B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+          >
+            დაწყება
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
     <footer
       class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"
     >
