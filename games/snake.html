@@ -50,7 +50,7 @@
           </p>
         </div>
 
-        <!-- Right side: Links (in a box) and Dark/Light mode button -->
+        <!-- Right side: Links (in a box) -->
         <div class="flex items-center gap-4">
           <!-- Text embedded in a nice background frame -->
           <nav
@@ -68,15 +68,6 @@
               >გამოხატე შენი აზრი</a
             >
           </nav>
-
-          <!-- Dark / Light Mode -->
-          <button
-            id="themeToggle"
-            class="p-2 rounded-full bg-[#D8E2D6] hover:bg-[#C4D3C2] text-[#3B4A3F] transition shadow-sm cursor-pointer"
-            title="ფერის შეცვლა"
-          >
-            🌙
-          </button>
         </div>
       </div>
     </header>
@@ -137,6 +128,7 @@
     </header>
 
     <!-- Main Content / Game Area -->
+    <!-- Main Content / Game Area -->
     <main class="flex flex-col items-center justify-center px-4 py-4 flex-grow">
       <div class="text-center mb-3">
         <h1 class="text-2xl font-bold text-[#3B4A3F] dark:text-[#F0F4F0] mb-1">
@@ -149,7 +141,7 @@
 
       <!-- Scoreboard & Wall Mode Option -->
       <div
-        class="flex flex-wrap justify-center gap-4 mb-3 text-sm font-semibold items-center"
+        class="flex flex-wrap justify-center gap-4 mb-4 text-sm font-semibold items-center"
       >
         <div
           class="bg-white dark:bg-[#324338] px-4 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm"
@@ -160,7 +152,7 @@
         <div
           class="bg-white dark:bg-[#324338] px-4 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm"
         >
-          რეკორდი:
+          თქვენი რეკორდი:
           <span id="highScore" class="text-[#3B4A3F] dark:text-[#F0F4F0]"
             >0</span
           >
@@ -184,31 +176,66 @@
         </div>
       </div>
 
-      <!-- Game Board (Canvas) -->
-      <div
-        class="relative bg-white dark:bg-[#324338] p-3 rounded-3xl border border-[#EBEFEA] dark:border-[#42574A] shadow-md"
-      >
-        <canvas
-          id="snakeCanvas"
-          width="400"
-          height="400"
-          class="rounded-2xl bg-[#F9FBF9] dark:bg-[#1E2721] block"
-        ></canvas>
-
-        <!-- Game Overlay / Start Screen -->
+      <!-- Game Container: Canvas and Leaderboard side by side with gap & centered alignment -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <!-- Game Board (Canvas) - 90-degree corners -->
         <div
-          id="gameOverlay"
-          class="absolute inset-0 bg-black/40 backdrop-blur-[2px] rounded-3xl flex flex-col items-center justify-center text-white transition-opacity"
+          class="relative bg-white dark:bg-[#324338] p-3 rounded-none border border-[#EBEFEA] dark:border-[#42574A] shadow-md"
         >
-          <h2 id="overlayText" class="text-xl font-bold mb-3">
-            დააჭირე დაწყებას
-          </h2>
-          <button
-            id="startBtn"
-            class="px-6 py-2.5 rounded-xl bg-[#3B4A3F] hover:bg-[#2C3E2B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+          <canvas
+            id="snakeCanvas"
+            width="400"
+            height="400"
+            class="rounded-none bg-[#F9FBF9] dark:bg-[#1E2721] block"
+          ></canvas>
+
+          <!-- Game Overlay / Start Screen -->
+          <div
+            id="gameOverlay"
+            class="absolute inset-0 bg-black/40 backdrop-blur-[2px] rounded-none flex flex-col items-center justify-center text-white transition-opacity"
           >
-            დაწყება
-          </button>
+            <h2
+              id="overlayText"
+              class="text-xl font-bold mb-3 text-center px-4"
+            >
+              დააჭირე დაწყებას
+            </h2>
+            <button
+              id="startBtn"
+              class="px-6 py-2.5 rounded-xl bg-[#3B4A3F] hover:bg-[#2C3E2B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+            >
+              დაწყება
+            </button>
+          </div>
+        </div>
+
+        <!-- Daily Leaderboard Widget (Separated and vertically centered) -->
+        <div
+          class="bg-white dark:bg-[#324338] p-4 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-md w-full md:w-48 text-xs flex flex-col justify-center gap-3 self-center"
+        >
+          <span
+            class="font-bold text-sm text-[#3B4A3F] dark:text-[#F0F4F0] border-b border-[#EBEFEA] dark:border-[#42574A] pb-2 text-center"
+          >
+            ლიდერბორდი
+          </span>
+          <div class="flex flex-col gap-1">
+            <span class="text-[#5C6B5E] dark:text-[#C5D9C3]"
+              >დღის რეკორდი:</span
+            >
+            <span
+              id="dailyHighScore"
+              class="font-bold text-sm text-[#3B4A3F] dark:text-[#F0F4F0]"
+              >0</span
+            >
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[#5C6B5E] dark:text-[#C5D9C3]">შენი ადგილი:</span>
+            <span
+              id="userRank"
+              class="font-bold text-sm text-[#3B4A3F] dark:text-[#F0F4F0]"
+              >-</span
+            >
+          </div>
         </div>
       </div>
     </main>

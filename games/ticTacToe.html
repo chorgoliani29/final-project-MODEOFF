@@ -65,7 +65,7 @@
           </p>
         </div>
 
-        <!-- Right side: Links (in a box) and Dark/Light mode button -->
+        <!-- Right side: Links (in a box)-->
         <div class="flex items-center gap-4">
           <!-- Text embedded in a nice background frame -->
           <nav
@@ -83,15 +83,6 @@
               >გამოხატე შენი აზრი</a
             >
           </nav>
-
-          <!-- Dark / Light Mode -->
-          <button
-            id="themeToggle"
-            class="p-2 rounded-full bg-[#D8E2D6] hover:bg-[#C4D3C2] text-[#3B4A3F] transition shadow-sm cursor-pointer"
-            title="ფერის შეცვლა"
-          >
-            🌙
-          </button>
         </div>
       </div>
     </header>
@@ -169,18 +160,19 @@
             class="flex bg-[#F0F4EF] dark:bg-[#232F27] p-1.5 rounded-2xl w-full sm:w-auto"
           >
             <button
-              id="modePvP"
-              onclick="setGameMode('pvp')"
-              class="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer bg-[#3B4A3F] dark:bg-[#5C7062] text-white shadow-sm"
-            >
-              მეგობართან (PvP)
-            </button>
-            <button
               id="modePvAI"
               onclick="setGameMode('pvai')"
               class="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer text-[#5C6B5E] dark:text-[#C5D9C3] hover:text-[#2C3E2B]"
             >
               კომპიუტერთან (PvAI)
+            </button>
+
+            <button
+              id="modePvP"
+              onclick="setGameMode('pvp')"
+              class="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer bg-[#3B4A3F] dark:bg-[#5C7062] text-white shadow-sm"
+            >
+              მეგობართან (PvP)
             </button>
           </div>
 

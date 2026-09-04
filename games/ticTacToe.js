@@ -1,25 +1,3 @@
-// --- Theme Toggle Logic ---
-const themeToggle = document.getElementById("themeToggle");
-function applyTheme(theme) {
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-    if (themeToggle) themeToggle.textContent = "☀️";
-  } else {
-    document.documentElement.classList.remove("dark");
-    if (themeToggle) themeToggle.textContent = "🌙";
-  }
-}
-const savedTheme = localStorage.getItem("theme") || "light";
-applyTheme(savedTheme);
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    let currentTheme = localStorage.getItem("theme") || "light";
-    let newTheme = currentTheme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
-  });
-}
-
 // --- Tic-Tac-Toe Game Logic ---
 let board = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";

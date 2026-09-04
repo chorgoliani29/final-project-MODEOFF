@@ -1,29 +1,10 @@
-// --- Theme Toggle Logic ---
-const themeToggle = document.getElementById("themeToggle");
-function applyTheme(theme) {
-  if (theme === "dark") {
-    document.documentElement.classList.add("dark");
-    if (themeToggle) themeToggle.textContent = "☀️";
-  } else {
-    document.documentElement.classList.remove("dark");
-    if (themeToggle) themeToggle.textContent = "🌙";
-  }
-}
-const savedTheme = localStorage.getItem("theme") || "light";
-applyTheme(savedTheme);
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    let currentTheme = localStorage.getItem("theme") || "light";
-    let newTheme = currentTheme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", newTheme);
-    applyTheme(newTheme);
-  });
-}
-
-// --- Wall Mode Toggle Logic ---
+// --- Wall Mode Toggle Logic (Default: Enabled) ---
 const wallToggle = document.getElementById("wallToggle");
 const wallToggleCircle = document.getElementById("wallToggleCircle");
-let passThroughWalls = false;
+let passThroughWalls = true;
+
+wallToggleCircle.style.transform = "translateX(20px)";
+wallToggle.classList.add("bg-[#5C7062]");
 
 wallToggle.addEventListener("click", () => {
   passThroughWalls = !passThroughWalls;
@@ -41,6 +22,8 @@ const canvas = document.getElementById("snakeCanvas");
 const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
 const highScoreElement = document.getElementById("highScore");
+const dailyHighScoreElement = document.getElementById("dailyHighScore");
+const userRankElement = document.getElementById("userRank");
 const gameOverlay = document.getElementById("gameOverlay");
 const overlayText = document.getElementById("overlayText");
 const startBtn = document.getElementById("startBtn");
@@ -53,11 +36,48 @@ let food = { x: 5, y: 5 };
 let dx = 0;
 let dy = 0;
 let score = 0;
+
+// Overall High Score
 let highScore = localStorage.getItem("snakeHighScore") || 0;
 highScoreElement.textContent = highScore;
 
+// --- Daily Leaderboard Logic (Resets at midnight) ---
+function checkDailyReset() {
+  const todayStr = new Date().toDateString(); // მაგ: "Fri Jun 06 2026"
+  const savedDate = localStorage.getItem("snakeDailyDate");
+
+  if (savedDate !== todayStr) {
+    // ახალი დღეა, ვანულებთ დღის რეკორდს
+    localStorage.setItem("snakeDailyDate", todayStr);
+    localStorage.setItem("snakeDailyHighScore", 0);
+  }
+}
+
+checkDailyReset();
+
+let dailyHighScore = parseInt(localStorage.getItem("snakeDailyHighScore")) || 0;
+dailyHighScoreElement.textContent = dailyHighScore;
+
+// ვთვლით მომხმარებლის ადგილს დღიური რეკორდის მიხედვით სიმულაციურად
+function updateUserRank(currentScore) {
+  if (currentScore === 0 && dailyHighScore === 0) {
+    userRankElement.textContent = "-";
+  } else if (currentScore >= dailyHighScore && currentScore > 0) {
+    userRankElement.textContent = "1-ლი 🏆";
+  } else if (currentScore > 50) {
+    userRankElement.textContent = "მე-2";
+  } else if (currentScore > 20) {
+    userRankElement.textContent = "მე-3";
+  } else {
+    userRankElement.textContent = "მე-4";
+  }
+}
+updateUserRank(0);
+
 let gameInterval = null;
 let isRunning = false;
+let isPaused = false;
+let isCountdown = false;
 
 function resetGame() {
   snake = [
@@ -69,13 +89,13 @@ function resetGame() {
   dy = 0;
   score = 0;
   scoreElement.textContent = score;
+  isPaused = false;
   spawnFood();
 }
 
 function spawnFood() {
   food.x = Math.floor(Math.random() * tileCount);
   food.y = Math.floor(Math.random() * tileCount);
-  // Ensure food does not spawn on the snake's body
   snake.forEach((part) => {
     if (part.x === food.x && part.y === food.y) {
       spawnFood();
@@ -84,15 +104,30 @@ function spawnFood() {
 }
 
 function startGame() {
+  if (isCountdown) return;
+  checkDailyReset(); // ყოველი დაწყებისას ვამოწმებთ არ შეცვლილა თუ არა დღე
+  isCountdown = true;
   resetGame();
-  gameOverlay.style.opacity = "0";
-  gameOverlay.style.pointerEvents = "none";
-  if (gameInterval) clearInterval(gameInterval);
-  gameInterval = setInterval(main, 100);
-  isRunning = true;
+
+  startBtn.style.display = "none";
+  overlayText.innerHTML = "მზადება... 1";
+  gameOverlay.style.opacity = "1";
+  gameOverlay.style.pointerEvents = "auto";
+
+  setTimeout(() => {
+    isCountdown = false;
+    startBtn.style.display = "block";
+    gameOverlay.style.opacity = "0";
+    gameOverlay.style.pointerEvents = "none";
+    if (gameInterval) clearInterval(gameInterval);
+    gameInterval = setInterval(main, 100);
+    isRunning = true;
+    isPaused = false;
+  }, 1000);
 }
 
 function main() {
+  if (isPaused) return;
   if (hasGameEnded()) {
     endGame();
     return;
@@ -127,9 +162,7 @@ function drawSnake() {
 function moveSnake() {
   const head = { x: snake[0].x + dx, y: snake[0].y + dy };
 
-  // Handle wall behavior based on user selection
   if (passThroughWalls) {
-    // Wrap-around logic (passes through walls)
     if (head.x < 0) head.x = tileCount - 1;
     else if (head.x >= tileCount) head.x = 0;
 
@@ -139,15 +172,25 @@ function moveSnake() {
 
   snake.unshift(head);
 
-  // Check if snake eats the food
   if (head.x === food.x && head.y === food.y) {
     score += 10;
     scoreElement.textContent = score;
+
+    // Check Global High Score
     if (score > highScore) {
       highScore = score;
       highScoreElement.textContent = highScore;
       localStorage.setItem("snakeHighScore", highScore);
     }
+
+    // Check Daily High Score
+    if (score > dailyHighScore) {
+      dailyHighScore = score;
+      dailyHighScoreElement.textContent = dailyHighScore;
+      localStorage.setItem("snakeDailyHighScore", dailyHighScore);
+    }
+
+    updateUserRank(score);
     spawnFood();
   } else {
     snake.pop();
@@ -157,7 +200,6 @@ function moveSnake() {
 function hasGameEnded() {
   const head = snake[0];
 
-  // Check wall collision only if passThroughWalls is turned off
   if (!passThroughWalls) {
     if (
       head.x < 0 ||
@@ -169,7 +211,6 @@ function hasGameEnded() {
     }
   }
 
-  // Check self-collision
   for (let i = 1; i < snake.length; i++) {
     if (head.x === snake[i].x && head.y === snake[i].y) {
       return true;
@@ -179,7 +220,7 @@ function hasGameEnded() {
 }
 
 function drawFood() {
-  ctx.fillStyle = "#E07A5F"; // Pastel red for food
+  ctx.fillStyle = "#E07A5F";
   ctx.fillRect(
     food.x * gridSize,
     food.y * gridSize,
@@ -191,7 +232,8 @@ function drawFood() {
 function endGame() {
   clearInterval(gameInterval);
   isRunning = false;
-  overlayText.textContent = `თამაში დასრულდა! ქულა: ${score}`;
+  isPaused = false;
+  overlayText.innerHTML = `თამაში დასრულდა!<br>ქულა: ${score}<br>დააჭირეთ SPACE`;
   startBtn.textContent = `თავიდან დაწყება`;
   gameOverlay.style.opacity = "1";
   gameOverlay.style.pointerEvents = "auto";
@@ -199,30 +241,57 @@ function endGame() {
 
 startBtn.addEventListener("click", startGame);
 
-// Keyboard event listeners for movement
+// Keyboard event listeners
 document.addEventListener("keydown", (e) => {
+  if (!isRunning && !isCountdown && (e.key === " " || e.code === "Space")) {
+    e.preventDefault();
+    startGame();
+    return;
+  }
+
   if (!isRunning) return;
 
+  if (e.key === " " || e.code === "Space") {
+    e.preventDefault();
+    isPaused = !isPaused;
+    if (isPaused) {
+      overlayText.innerHTML = "პაუზა<br>გაგრძელებისთვის დააჭირეთ SPACE";
+      gameOverlay.style.opacity = "1";
+      gameOverlay.style.pointerEvents = "auto";
+    } else {
+      gameOverlay.style.opacity = "0";
+      gameOverlay.style.pointerEvents = "none";
+    }
+    return;
+  }
+
+  if (isPaused) return;
+
+  const key = e.key.toLowerCase();
   const keyPressed = e.keyCode;
   const goingUp = dy === -1;
   const goingDown = dy === 1;
   const goingRight = dx === 1;
   const goingLeft = dx === -1;
 
-  if ((keyPressed === 37 || e.key === "a" || e.key === "ა") && !goingRight) {
+  if ((keyPressed === 37 || key === "a" || key === "ა") && !goingRight) {
     dx = -1;
     dy = 0;
+    e.preventDefault();
   }
-  if ((keyPressed === 38 || e.key === "w" || e.key === "ც") && !goingDown) {
+  if ((keyPressed === 38 || key === "w" || key === "წ") && !goingDown) {
     dx = 0;
     dy = -1;
+    e.preventDefault();
   }
-  if ((keyPressed === 39 || e.key === "d" || e.key === "დ") && !goingLeft) {
+  if ((keyPressed === 39 || key === "d" || key === "დ") && !goingLeft) {
     dx = 1;
     dy = 0;
+    e.preventDefault();
   }
-  if ((keyPressed === 40 || e.key === "s" || e.key === "ს") && !goingUp) {
+  if ((keyPressed === 40 || key === "s" || key === "ს") && !goingUp) {
     dx = 0;
     dy = 1;
+    e.preventDefault();
   }
 });
