@@ -34,11 +34,6 @@
         box-sizing: border-box;
       }
     </style>
-    <script>
-      if (localStorage.getItem("theme") === "dark") {
-        document.documentElement.classList.add("dark");
-      }
-    </script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -119,16 +114,6 @@
 
         <!-- Right side -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
-          <a
-            href="../views/quizzes.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
-            >ქვიზნი</a
-          >
-          <a
-            href="../views/eyeRest.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
-            >თვალის სიმშვიდე</a
-          >
           <!-- აქტიურია თამაშები -->
           <a
             href="../views/games.html"
@@ -149,6 +134,11 @@
             href="../views/whatToEat.html"
             class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
             >რა ვჭამო?</a
+          >
+          <a
+            href="../views/eyeRest.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
           >
         </nav>
       </div>

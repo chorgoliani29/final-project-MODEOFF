@@ -104,16 +104,6 @@
         <!-- Right side -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
-            href="../views/quizzes.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
-            >ქვიზნი</a
-          >
-          <a
-            href="../views/eyeRest.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
-            >თვალის სიმშვიდე</a
-          >
-          <a
             href="../views/games.html"
             class="px-3 py-2 rounded-lg text-sm font-medium bg-[#E3EBE1] text-[#2C382A] transition"
             >თამაშები</a
@@ -132,6 +122,11 @@
             href="../views/whatToEat.html"
             class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
             >რა ვჭამო?</a
+          >
+          <a
+            href="../views/eyeRest.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
           >
         </nav>
       </div>
@@ -220,7 +215,7 @@
                 onclick="resetGame()"
                 class="px-6 py-2.5 rounded-xl bg-[#3B4A3F] hover:bg-[#2C3E2B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
               >
-                ↻ თავიდან ცდა
+                დააჭირეთ space
               </button>
             </div>
           </div>
@@ -232,46 +227,6 @@
           >
             თამაშის დაწყება
           </button>
-        </div>
-
-        <!-- Daily Leaderboard Widget -->
-        <div
-          class="bg-white p-5 rounded-2xl border border-[#E2E8E0] shadow-sm w-full lg:w-56 text-xs flex flex-col justify-center gap-3.5 self-center"
-        >
-          <div
-            class="flex items-center justify-between border-b border-[#E2E8E0] pb-2 text-center"
-          >
-            <span class="font-bold text-sm text-[#3B4A3F]"> ლიდერბორდი </span>
-            <span
-              class="text-[10px] text-[#5C6B5E] bg-[#EAEFE9] px-2 py-0.5 rounded-full"
-              >დღიური</span
-            >
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-[#5C6B5E]">დღის რეკორდი:</span>
-            <span id="daily-best-score" class="font-bold text-sm text-[#3B4A3F]"
-              >00000</span
-            >
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-[#5C6B5E]">შენი პოზიცია:</span>
-            <span id="player-rank" class="font-bold text-sm text-[#3B4A3F]"
-              >–</span
-            >
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-[#5C6B5E]">მიმდინარე შედეგი:</span>
-            <span
-              id="current-rank-score"
-              class="font-bold text-sm text-[#3B4A3F]"
-              >00000</span
-            >
-          </div>
-          <div class="pt-2 border-t border-[#E2E8E0] text-center">
-            <span class="text-[10px] text-[#8A9A88]">
-              განულდება ყოველ შუაღამეს
-            </span>
-          </div>
         </div>
       </div>
     </main>

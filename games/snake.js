@@ -22,8 +22,6 @@ const canvas = document.getElementById("snakeCanvas");
 const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
 const highScoreElement = document.getElementById("highScore");
-const dailyHighScoreElement = document.getElementById("dailyHighScore");
-const userRankElement = document.getElementById("userRank");
 const gameOverlay = document.getElementById("gameOverlay");
 const overlayText = document.getElementById("overlayText");
 const startBtn = document.getElementById("startBtn");
@@ -40,39 +38,6 @@ let score = 0;
 // Overall High Score
 let highScore = localStorage.getItem("snakeHighScore") || 0;
 highScoreElement.textContent = highScore;
-
-// --- Daily Leaderboard Logic (Resets at midnight) ---
-function checkDailyReset() {
-  const todayStr = new Date().toDateString(); // მაგ: "Fri Jun 06 2026"
-  const savedDate = localStorage.getItem("snakeDailyDate");
-
-  if (savedDate !== todayStr) {
-    // ახალი დღეა, ვანულებთ დღის რეკორდს
-    localStorage.setItem("snakeDailyDate", todayStr);
-    localStorage.setItem("snakeDailyHighScore", 0);
-  }
-}
-
-checkDailyReset();
-
-let dailyHighScore = parseInt(localStorage.getItem("snakeDailyHighScore")) || 0;
-dailyHighScoreElement.textContent = dailyHighScore;
-
-// ვთვლით მომხმარებლის ადგილს დღიური რეკორდის მიხედვით სიმულაციურად
-function updateUserRank(currentScore) {
-  if (currentScore === 0 && dailyHighScore === 0) {
-    userRankElement.textContent = "-";
-  } else if (currentScore >= dailyHighScore && currentScore > 0) {
-    userRankElement.textContent = "1-ლი 🏆";
-  } else if (currentScore > 50) {
-    userRankElement.textContent = "მე-2";
-  } else if (currentScore > 20) {
-    userRankElement.textContent = "მე-3";
-  } else {
-    userRankElement.textContent = "მე-4";
-  }
-}
-updateUserRank(0);
 
 let gameInterval = null;
 let isRunning = false;
@@ -105,7 +70,6 @@ function spawnFood() {
 
 function startGame() {
   if (isCountdown) return;
-  checkDailyReset(); // ყოველი დაწყებისას ვამოწმებთ არ შეცვლილა თუ არა დღე
   isCountdown = true;
   resetGame();
 
@@ -183,14 +147,6 @@ function moveSnake() {
       localStorage.setItem("snakeHighScore", highScore);
     }
 
-    // Check Daily High Score
-    if (score > dailyHighScore) {
-      dailyHighScore = score;
-      dailyHighScoreElement.textContent = dailyHighScore;
-      localStorage.setItem("snakeDailyHighScore", dailyHighScore);
-    }
-
-    updateUserRank(score);
     spawnFood();
   } else {
     snake.pop();

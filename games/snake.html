@@ -104,16 +104,6 @@
         <!-- Right side -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
-            href="../views/quizzes.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
-            >ქვიზნი</a
-          >
-          <a
-            href="../views/eyeRest.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
-            >თვალის სიმშვიდე</a
-          >
-          <a
             href="../views/games.html"
             class="px-3 py-2 rounded-lg text-sm font-medium bg-[#E3EBE1] text-[#2C382A] transition"
             >თამაშები</a
@@ -132,6 +122,11 @@
             href="../views/whatToEat.html"
             class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
             >რა ვჭამო?</a
+          >
+          <a
+            href="../views/eyeRest.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
           >
         </nav>
       </div>
@@ -171,7 +166,7 @@
     <!-- Main Content / Game Area -->
     <main class="flex flex-col items-center justify-center px-4 py-8 flex-grow">
       <div class="text-center mb-4">
-        <h1 class="text-2xl font-bold text-[#3B4A3F] mb-1">Snake</h1>
+        <h1 class="text-2xl font-bold text-[#3B4A3F] mb-1">SNAKE</h1>
         <p class="text-xs text-[#5C6B5E]">
           მართე ისრებით ან W, A, S, D კლავიშებით , პაუზა space
         </p>
@@ -210,7 +205,7 @@
         </div>
       </div>
 
-      <!-- Game Container: Canvas and Leaderboard side by side -->
+      <!-- Game Container: Canvas Only -->
       <div class="flex flex-col md:flex-row items-center justify-center gap-6">
         <!-- Game Board (Canvas) -->
         <div
@@ -220,7 +215,7 @@
             id="snakeCanvas"
             width="400"
             height="400"
-            class="rounded-xl bg-[#F9FBF9] block"
+            class="rounded-none bg-[#F9FBF9] block"
           ></canvas>
 
           <!-- Game Overlay / Start Screen -->
@@ -240,29 +235,6 @@
             >
               დაწყება
             </button>
-          </div>
-        </div>
-
-        <!-- Daily Leaderboard Widget -->
-        <div
-          class="bg-white p-5 rounded-2xl border border-[#E2E8E0] shadow-sm w-full md:w-52 text-xs flex flex-col justify-center gap-3.5 self-center"
-        >
-          <span
-            class="font-bold text-sm text-[#3B4A3F] border-b border-[#E2E8E0] pb-2 text-center"
-          >
-            ლიდერბორდი
-          </span>
-          <div class="flex flex-col gap-1">
-            <span class="text-[#5C6B5E]">დღის რეკორდი:</span>
-            <span id="dailyHighScore" class="font-bold text-sm text-[#3B4A3F]"
-              >0</span
-            >
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-[#5C6B5E]">შენი ადგილი:</span>
-            <span id="userRank" class="font-bold text-sm text-[#3B4A3F]"
-              >–</span
-            >
           </div>
         </div>
       </div>
