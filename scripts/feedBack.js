@@ -1,33 +1,64 @@
-let submitted = false;
-const form = document.getElementById("feedbackForm");
-const messageInput = document.getElementById("messageInput");
-const errorText = document.getElementById("errorText");
-const successMessage = document.getElementById("successMessage");
+// burger menu
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+  const closeIcon = document.getElementById("close-icon");
 
-form.addEventListener("submit", function (e) {
-  // Validation: Let's check only the last point ('What would you tell us')
-  if (messageInput.value.trim() === "") {
-    e.preventDefault(); // Stop the submission
-    errorText.classList.remove("hidden");
-    messageInput.classList.add("border-red-400", "bg-red-50/30");
-    messageInput.focus();
-    return;
+  if (!menuBtn || !mobileMenu || !menuIcon || !closeIcon) return;
+
+  function toggleMenu() {
+    // ვამოწმებთ მენიუ გახსნილია თუ არა (თუ შეიცავს -translate-y-full-ს, ე.ი. დაკეტილია)
+    const isClosed = mobileMenu.classList.contains("-translate-y-full");
+
+    if (isClosed) {
+      // მენიუს გახსნა
+      mobileMenu.classList.remove(
+        "-translate-y-full",
+        "opacity-0",
+        "pointer-events-none",
+      );
+      menuIcon.classList.add("hidden");
+      closeIcon.classList.remove("hidden");
+    } else {
+      // მენიუს დახურვა
+      mobileMenu.classList.add(
+        "-translate-y-full",
+        "opacity-0",
+        "pointer-events-none",
+      );
+      menuIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
+    }
   }
 
-  // If filled, clear the error and proceed
-  errorText.classList.add("hidden");
-  messageInput.classList.remove("border-red-400", "bg-red-50/30");
-  submitted = true;
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // გარეთ დაკლიკებისას დახურვა
+  document.addEventListener("click", (e) => {
+    if (
+      !mobileMenu.classList.contains("-translate-y-full") &&
+      !mobileMenu.contains(e.target) &&
+      !menuBtn.contains(e.target)
+    ) {
+      toggleMenu();
+    }
+  });
+
+  // ლინკზე დაჭერისას ავტომატურად დახურვა
+  const mobileLinks = mobileMenu.querySelectorAll("a");
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add(
+        "-translate-y-full",
+        "opacity-0",
+        "pointer-events-none",
+      );
+      menuIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
+    });
+  });
 });
-
-function showSuccess() {
-  form.classList.add("hidden");
-  successMessage.classList.remove("hidden");
-}
-
-function resetForm() {
-  form.reset();
-  form.classList.remove("hidden");
-  successMessage.classList.add("hidden");
-  submitted = false;
-}

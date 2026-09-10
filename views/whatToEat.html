@@ -22,7 +22,7 @@
         scrollbar-width: none;
       }
     </style>
-    <script src="../scripts/ldleness.js" defer></script>
+    <script src="../scripts/whatToEat.js" defer></script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -102,7 +102,7 @@
           >
         </a>
 
-        <!-- Right side  -->
+        <!-- Right side (Desktop Navigation) -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
             href="../views/games.html"
@@ -121,7 +121,7 @@
           >
           <a
             href="../views/whatToEat.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#2C382A] bg-[#E3EBE1] transition"
             >რა ვჭამო?</a
           >
           <a
@@ -130,13 +130,93 @@
             >თვალის სიმშვიდე</a
           >
         </nav>
+
+        <!-- Mobile Burger Button -->
+        <div class="lg:hidden flex items-center">
+          <button
+            id="mobile-menu-button"
+            class="p-2 rounded-lg text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <!-- Hamburger Icon -->
+            <svg
+              id="menu-icon"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <!-- Close Icon (Hidden by default) -->
+            <svg
+              id="close-icon"
+              class="w-6 h-6 hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-[#FFFFFF] border-b border-[#E2E8E0] px-6 py-4 shadow-lg transition-all"
+      >
+        <nav class="flex flex-col gap-2">
+          <a
+            href="../views/games.html"
+            class="px-3 py-2 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თამაშები</a
+          >
+          <a
+            href="../views/Idleness.html"
+            class="px-3 py-2 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >უსაქმურობა</a
+          >
+          <a
+            href="../views/simplifyYourLife.html"
+            class="px-3 py-2 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >გაიმარტივე ცხოვრება</a
+          >
+          <a
+            href="../views/whatToEat.html"
+            class="px-3 py-2 rounded-lg text-base font-medium text-[#2C382A] bg-[#E3EBE1] transition"
+            >რა ვჭამო?</a
+          >
+          <a
+            href="../views/eyeRest.html"
+            class="px-3 py-2 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
+          >
+        </nav>
       </div>
     </header>
-
     <div class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6">
       <div
         class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
       >
+        <!-- ALL -->
+        <a
+          href="../views/whatToEat.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#E3EBE1] text-[#2C382A] shadow-sm border border-[#D2DDD0] transition"
+        >
+          ყველა
+        </a>
         <!-- KUTAISI -->
         <a
           href="../whatToEat/kutaisi.html"

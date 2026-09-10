@@ -90,7 +90,7 @@
       <div
         class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
       >
-        <!-- Left side: Main logo -->
+        <!-- Logo -->
         <a href="./index.html" class="flex items-center gap-2 group">
           <div
             class="w-10 h-10 rounded-xl bg-[#E3EBE1] flex items-center justify-center group-hover:bg-[#D2DDD0] transition"
@@ -102,7 +102,7 @@
           >
         </a>
 
-        <!-- Right side  -->
+        <!-- Desktop Navigation -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
             href="./views/games.html"
@@ -130,20 +130,302 @@
             >თვალის სიმშვიდე</a
           >
         </nav>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="menu-btn"
+          class="lg:hidden w-10 h-10 rounded-xl bg-[#E3EBE1] flex items-center justify-center text-[#3B4A3F] focus:outline-none hover:bg-[#D2DDD0] transition"
+          aria-label="Toggle Menu"
+        >
+          <svg
+            id="menu-icon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+          <svg
+            id="close-icon"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden absolute top-full left-0 w-full bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E2E8E0] shadow-lg py-4 px-6 transition-all duration-300"
+      >
+        <nav class="flex flex-col gap-2">
+          <a
+            href="./views/games.html"
+            class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თამაშები</a
+          >
+          <a
+            href="./views/Idleness.html"
+            class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >უსაქმურობა</a
+          >
+          <a
+            href="./views/simplifyYourLife.html"
+            class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >გაიმარტივე ცხოვრება</a
+          >
+          <a
+            href="./views/whatToEat.html"
+            class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >რა ვჭამო?</a
+          >
+          <a
+            href="./views/eyeRest.html"
+            class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
+          >
+        </nav>
       </div>
     </header>
 
     <!-- ================= Main site content ================= -->
-    <main class="max-w-4xl mx-auto px-6 py-20 text-center">
+    <main class="max-w-4xl mx-auto px-6 py-10 text-center">
       <h1 class="text-4xl font-light text-[#2C3E2B] mb-6">
-        მოგესალმები შენს განტვირთვის კუთხეში
+        მოგესალმები შენი განტვირთვის სივრცეში
       </h1>
       <p class="text-lg text-[#6C7A6A] leading-relaxed mb-10">
-        ეს არის სივრცე, სადაც შეგიძლია დაისვენო, გაიგო რა ჭამო დღეს ან უბრალოდ
-        გამორთო გონება.
+        ეს არის სივრცე, სადაც შეგიძლია ითამაშო, დაისვენო, გაიგო რა ჭამო დღეს ან
+        უბრალოდ გამორთო გონება.
       </p>
     </main>
 
+    <!-- games -->
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 1. Tic-Tac-Toe Card -->
+        <a
+          href="../games/ticTacToe.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/games/X&O.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">Tic-Tac-Toe</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              კლასიკური X იკი და O კი
+            </p>
+          </div>
+        </a>
+
+        <!-- 2. Snake Game Card -->
+        <a
+          href="../games/snake.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/games/snake.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">SNAKE</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              კლასიკური NOKIA ს SNAKE
+            </p>
+          </div>
+        </a>
+
+        <!-- 3. Chrome DINO Card -->
+        <a
+          href="../games/chromeDino.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/games/chromeDino.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">Chrome DINO</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              ნუ დაელოდები ინტერნეტის წასვლას, ითამაშე ახლავე
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Idleness-->
+
+      <div class="py-12">
+        <!--  Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- fireplace -->
+          <a
+            href="../Idleness/firePlace.html"
+            class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+          >
+            <div
+              class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+              style="background-image: url(../images/Idleness/firePlace.png)"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+              ></div>
+            </div>
+            <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+              <h3 class="text-2xl font-medium text-white mb-2">ბუხარი</h3>
+              <p class="text-sm text-white/80 line-clamp-2">
+                აირჩიე სითბო და სიმყუდროვე სრულ ეკრანზე
+              </p>
+            </div>
+          </a>
+
+          <!-- windows update -->
+          <a
+            href="../Idleness/windowsUpdate.html"
+            class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+          >
+            <div
+              class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+              style="
+                background-image: url(../images/Idleness/WindowsUpdate.png);
+              "
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+              ></div>
+            </div>
+            <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+              <h3 class="text-2xl font-medium text-white mb-2">
+                Windows Update
+              </h3>
+              <p class="text-sm text-white/80 line-clamp-2">
+                გაუშვი განახლება სრულ ეკრანზე და ყველაფერი Microsoft ს დააბრალე
+              </p>
+            </div>
+          </a>
+
+          <!-- Clock -->
+          <a
+            href="../Idleness/clock.html"
+            class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+          >
+            <div
+              class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+              style="background-image: url(../images/Idleness/clock.png)"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+              ></div>
+            </div>
+            <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+              <h3 class="text-2xl font-medium text-white mb-2">საათი</h3>
+              <p class="text-sm text-white/80 line-clamp-2">
+                აკონტროლე წამები სრულ ეკრანზე.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- simplify your life -->
+
+      <!--  Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- web development -->
+        <a
+          href="../simplifyYourLife/webDevelopment.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="
+              background-image: url(../images/simplifyYourLife/webDevelopment.png);
+            "
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">საიტის აწყობა</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              გააციფრულე შენი ბიზნესი
+            </p>
+          </div>
+        </a>
+
+        <!-- AI -->
+        <a
+          href="../simplifyYourLife/AI.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/simplifyYourLife/AI.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">AI ხელსაწყოები</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              გაიგე რომელი რისთვის გამოდგება და გაიმარტივე ცხოვრება
+            </p>
+          </div>
+        </a>
+
+        <!-- steam -->
+        <a
+          href="../simplifyYourLife/steam.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/simplifyYourLife/steam.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">Steam</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              შეუერთდი გლობალურ სათამაშო საზოგადოებას
+            </p>
+          </div>
+        </a>
+      </div>
+    </main>
     <!-- footer -->
     <footer
       class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"

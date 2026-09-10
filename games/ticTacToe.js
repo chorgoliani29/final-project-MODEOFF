@@ -1,8 +1,37 @@
+// burger menu
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const menuIcon = document.getElementById("menu-icon");
+const closeIcon = document.getElementById("close-icon");
+const mobileLinks = document.querySelectorAll(".mobile-link");
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("opacity-0");
+  mobileMenu.classList.toggle("pointer-events-none");
+  mobileMenu.classList.toggle("-translate-y-full");
+
+  menuIcon.classList.toggle("hidden");
+  closeIcon.classList.toggle("hidden");
+});
+
+mobileLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add(
+      "opacity-0",
+      "pointer-events-none",
+      "-translate-y-full",
+    );
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+  });
+});
+
 // --- Tic-Tac-Toe Game Logic ---
 let board = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let isGameActive = true;
-let gameMode = "pvp";
+let gameMode = "pvai"; // საწყისად არჩეულია კომპიუტერთან თამაში
+let aiFirst = false; // კომპიუტერის პირველი სვლა თავიდან გამორთულია
 let autoResetTimeout = null;
 
 let scores = { X: 0, O: 0, tie: 0 };
@@ -26,6 +55,8 @@ function setGameMode(mode) {
   const pvpBtn = document.getElementById("modePvP");
   const pvaiBtn = document.getElementById("modePvAI");
   const labelO = document.getElementById("labelO");
+  const aiFirstContainer = document.getElementById("aiFirstContainer");
+  const aiFirstToggle = document.getElementById("aiFirstToggle");
 
   if (mode === "pvp") {
     pvpBtn.className =
@@ -33,14 +64,40 @@ function setGameMode(mode) {
     pvaiBtn.className =
       "flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer text-[#5C6B5E] dark:text-[#C5D9C3] hover:text-[#2C3E2B]";
     labelO.textContent = "მოთამაშე O";
+
+    // მეგობართან რეჟიმში სრულად იმალება ისე, რომ არც სივრცე დაიკავოს და არც აიწიოს-გაიწიოს
+    aiFirstContainer.style.opacity = "0";
+    aiFirstContainer.style.visibility = "hidden";
+    aiFirstContainer.style.width = "0px";
+    aiFirstContainer.style.padding = "0px";
+    aiFirstContainer.style.margin = "0px";
+    aiFirstContainer.style.pointerEvents = "none";
+
+    aiFirst = false;
+    aiFirstToggle.checked = false;
   } else {
     pvaiBtn.className =
       "flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer bg-[#3B4A3F] dark:bg-[#5C7062] text-white shadow-sm";
     pvpBtn.className =
       "flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer text-[#5C6B5E] dark:text-[#C5D9C3] hover:text-[#2C3E2B]";
     labelO.textContent = "კომპიუტერი (AI)";
+
+    // კომპიუტერთან რეჟიმში თავის ადგილას ბრუნდება სუფთად
+    aiFirstContainer.style.opacity = "1";
+    aiFirstContainer.style.visibility = "visible";
+    aiFirstContainer.style.width = "";
+    aiFirstContainer.style.padding = "";
+    aiFirstContainer.style.margin = "";
+    aiFirstContainer.style.pointerEvents = "auto";
   }
   if (autoResetTimeout) clearTimeout(autoResetTimeout);
+  resetGame();
+}
+
+function toggleAIFirst() {
+  if (gameMode !== "pvai") return;
+  const aiFirstToggle = document.getElementById("aiFirstToggle");
+  aiFirst = aiFirstToggle.checked;
   resetGame();
 }
 
@@ -144,7 +201,6 @@ function endGame(isTie) {
     }
   }
 
-  // Automatically restart the game in exactly 1.5 seconds
   autoResetTimeout = setTimeout(() => {
     resetGame();
   }, 1500);
@@ -155,8 +211,26 @@ function resetGame() {
   board = ["", "", "", "", "", "", "", "", ""];
   isGameActive = true;
   currentPlayer = "X";
-  updateStatusMessage();
-  updateUI();
+
+  if (gameMode === "pvai" && aiFirst) {
+    currentPlayer = "O";
+    updateStatusMessage();
+    updateUI();
+    isGameActive = false;
+    setTimeout(() => {
+      let aiMove = bestSpot();
+      if (aiMove !== undefined) {
+        board[aiMove] = "O";
+      }
+      isGameActive = true;
+      currentPlayer = "X";
+      updateUI();
+      updateStatusMessage();
+    }, 300);
+  } else {
+    updateStatusMessage();
+    updateUI();
+  }
 }
 
 function resetScores() {

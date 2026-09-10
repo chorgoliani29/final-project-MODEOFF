@@ -22,7 +22,7 @@
         scrollbar-width: none;
       }
     </style>
-    <script src="../scripts/ldleness.js" defer></script>
+    <script src="../scripts/simplifyYourLife.js" defer></script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -102,7 +102,7 @@
           >
         </a>
 
-        <!-- Right side  -->
+        <!-- Right side (Desktop Navigation) -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
             href="../views/games.html"
@@ -116,7 +116,7 @@
           >
           <a
             href="../views/simplifyYourLife.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
+            class="px-3 py-2 rounded-lg text-sm font-medium bg-[#E3EBE1] text-[#2C382A] transition"
             >გაიმარტივე ცხოვრება</a
           >
           <a
@@ -130,6 +130,74 @@
             >თვალის სიმშვიდე</a
           >
         </nav>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          id="menu-toggle"
+          class="lg:hidden p-2 rounded-lg text-[#556353] hover:bg-[#F0F4EF] focus:outline-none transition"
+          aria-label="Toggle menu"
+        >
+          <svg
+            id="menu-icon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+          <svg
+            id="close-icon"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden absolute top-full left-0 w-full bg-[#FFFFFF] border-b border-[#E2E8E0] shadow-lg px-6 py-4 flex flex-col gap-2 transition-all"
+      >
+        <a
+          href="../views/games.html"
+          class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >თამაშები</a
+        >
+        <a
+          href="../views/Idleness.html"
+          class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >უსაქმურობა</a
+        >
+        <a
+          href="../views/simplifyYourLife.html"
+          class="px-4 py-3 rounded-xl text-base font-medium bg-[#E3EBE1] text-[#2C382A] transition"
+          >გაიმარტივე ცხოვრება</a
+        >
+        <a
+          href="../views/whatToEat.html"
+          class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >რა ვჭამო?</a
+        >
+        <a
+          href="../views/eyeRest.html"
+          class="px-4 py-3 rounded-xl text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >თვალის სიმშვიდე</a
+        >
       </div>
     </header>
 
@@ -144,9 +212,9 @@
         </p>
       </div>
 
-      <!-- 3 Cards Grid -->
+      <!--  Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Card 1 -->
+        <!-- web development -->
         <a
           href="../simplifyYourLife/webDevelopment.html"
           class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
@@ -169,7 +237,7 @@
           </div>
         </a>
 
-        <!-- Card 2 -->
+        <!-- AI -->
         <a
           href="../simplifyYourLife/AI.html"
           class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
@@ -190,7 +258,7 @@
           </div>
         </a>
 
-        <!-- Card 3 -->
+        <!-- steam -->
         <a
           href="../simplifyYourLife/steam.html"
           class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"

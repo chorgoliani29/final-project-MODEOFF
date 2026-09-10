@@ -102,7 +102,7 @@
           >
         </a>
 
-        <!-- Right side  -->
+        <!-- Right side (Desktop Nav) -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
             href="../views/games.html"
@@ -130,6 +130,74 @@
             >თვალის სიმშვიდე</a
           >
         </nav>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          id="menu-btn"
+          class="lg:hidden p-2 rounded-lg text-[#556353] hover:bg-[#F0F4EF] focus:outline-none transition"
+          aria-label="მენიუს გახსნა"
+        >
+          <svg
+            id="menu-icon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+          <svg
+            id="close-icon"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden absolute top-16 left-0 w-full bg-[#FFFFFF] border-b border-[#E2E8E0] shadow-md py-4 px-6 flex flex-col gap-2 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+      >
+        <a
+          href="../views/games.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >თამაშები</a
+        >
+        <a
+          href="../views/Idleness.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium bg-[#E3EBE1] text-[#2C382A] transition"
+          >უსაქმურობა</a
+        >
+        <a
+          href="../views/simplifyYourLife.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >გაიმარტივე ცხოვრება</a
+        >
+        <a
+          href="../views/whatToEat.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >რა ვჭამო?</a
+        >
+        <a
+          href="../views/eyeRest.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >თვალის სიმშვიდე</a
+        >
       </div>
     </header>
 

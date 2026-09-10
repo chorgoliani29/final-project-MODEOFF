@@ -112,12 +112,11 @@
           >
         </a>
 
-        <!-- Right side -->
+        <!-- Right side (Desktop Nav) -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
-          <!-- აქტიურია თამაშები -->
           <a
             href="../views/games.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
+            class="px-3 py-2 rounded-lg text-sm font-medium bg-[#E3EBE1] text-[#2C382A] transition"
             >თამაშები</a
           >
           <a
@@ -141,10 +140,78 @@
             >თვალის სიმშვიდე</a
           >
         </nav>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          id="menu-btn"
+          class="lg:hidden p-2 rounded-lg text-[#556353] hover:bg-[#F0F4EF] focus:outline-none transition"
+          aria-label="მენიუს გახსნა"
+        >
+          <svg
+            id="menu-icon"
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+          <svg
+            id="close-icon"
+            class="w-6 h-6 hidden"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden absolute top-16 left-0 w-full bg-[#FFFFFF] border-b border-[#E2E8E0] shadow-md py-4 px-6 flex flex-col gap-2 transform -translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+      >
+        <a
+          href="../views/games.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium bg-[#E3EBE1] text-[#2C382A] transition"
+          >თამაშები</a
+        >
+        <a
+          href="../views/Idleness.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >უსაქმურობა</a
+        >
+        <a
+          href="../views/simplifyYourLife.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >გაიმარტივე ცხოვრება</a
+        >
+        <a
+          href="../views/whatToEat.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >რა ვჭამო?</a
+        >
+        <a
+          href="../views/eyeRest.html"
+          class="mobile-link px-4 py-3 rounded-lg text-base font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+          >თვალის სიმშვიდე</a
+        >
       </div>
     </header>
 
-    <!-- ================= Third Sub-Header (Games Features Submenu) - შემცირებული მარგინი (mb-4) ================= -->
+    <!-- ================= Third Sub-Header (Games Features Submenu) ================= -->
     <div class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6 mb-4">
       <div
         class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
@@ -183,25 +250,46 @@
         <div
           class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6 w-full"
         >
-          <!-- Mode Buttons -->
-          <div
-            class="flex bg-[#F0F4EF] dark:bg-[#232F27] p-1.5 rounded-2xl w-full sm:w-auto"
-          >
-            <button
-              id="modePvAI"
-              onclick="setGameMode('pvai')"
-              class="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer text-[#5C6B5E] dark:text-[#C5D9C3] hover:text-[#2C3E2B]"
+          <!-- Mode & AI Start Slider Toggle -->
+          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <div
+              class="flex bg-[#F0F4EF] dark:bg-[#232F27] p-1.5 rounded-2xl flex-1 sm:flex-initial"
             >
-              კომპიუტერთან (PvAI)
-            </button>
+              <button
+                id="modePvAI"
+                onclick="setGameMode('pvai')"
+                class="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer bg-[#3B4A3F] dark:bg-[#5C7062] text-white shadow-sm"
+              >
+                კომპიუტერთან (PvAI)
+              </button>
 
-            <button
-              id="modePvP"
-              onclick="setGameMode('pvp')"
-              class="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer bg-[#3B4A3F] dark:bg-[#5C7062] text-white shadow-sm"
+              <button
+                id="modePvP"
+                onclick="setGameMode('pvp')"
+                class="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-semibold transition cursor-pointer text-[#5C6B5E] dark:text-[#C5D9C3] hover:text-[#2C3E2B]"
+              >
+                მეგობართან (PvP)
+              </button>
+            </div>
+
+            <!-- AI First Move Slide Toggle Container -->
+            <div
+              id="aiFirstContainer"
+              class="flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#F0F4EF] dark:bg-[#232F27] text-xs font-medium text-[#3B4A3F] dark:text-[#E2EAE0] transition-all duration-300 overflow-hidden whitespace-nowrap"
             >
-              მეგობართან (PvP)
-            </button>
+              <span>AI ის დაწყება</span>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  id="aiFirstToggle"
+                  onchange="toggleAIFirst()"
+                  class="sr-only peer"
+                />
+                <div
+                  class="w-9 h-5 bg-[#D8E2D6] peer-focus:outline-none rounded-full peer dark:bg-[#42574A] peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-[#D8E2D6] after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#3B4A3F] dark:peer-checked:bg-[#5C7062]"
+                ></div>
+              </label>
+            </div>
           </div>
 
           <!-- Control Buttons -->
@@ -257,7 +345,7 @@
             <span
               class="block text-xs font-bold uppercase tracking-wider text-[#4A5A48] dark:text-[#D2E2D0] mb-1"
               id="labelO"
-              >მოთამაშე O</span
+              >კომპიუტერი (AI)</span
             >
             <span
               id="scoreO"
