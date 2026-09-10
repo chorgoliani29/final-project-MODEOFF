@@ -12,15 +12,17 @@
         color: #4a5568;
         font-family: sans-serif;
       }
-    </style>
-    <script src="../scripts/whatToEat.js" defer></script>
-    <script>
-      // Check localStorage immediately on page load to prevent flashing
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.style.backgroundColor = "#1A211C";
-        document.body.style.color = "#E2E8E0";
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
       }
-    </script>
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+    <script src="../scripts/ldleness.js" defer></script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -129,17 +131,119 @@
           >
           <a
             href="../views/whatToEat.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
             >რა ვჭამო?</a
           >
         </nav>
       </div>
     </header>
-    <div class="h-screen flex flex-col items-center pt-20">
-      <h1 class="text-4xl font-light text-[#2C3E2B] mb-6">
-        შიგთავსი მალე დაემატება
-      </h1>
+
+    <div class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6">
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
+      >
+        <!-- KUTAISI -->
+        <a
+          href="../whatToEat/kutaisi.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          ქუთაისი
+        </a>
+
+        <!-- TBILISI -->
+        <a
+          href="../whatToEat/tbilisi.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          თბილისი
+        </a>
+
+        <!-- BATUMI -->
+        <a
+          href="../whatToEat/batumi.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          ბათუმი
+        </a>
+      </div>
     </div>
+
+    <!-- ================= Main Content / Cards Section ================= -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <div class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-light text-[#2C3E2B]">
+          გემრიელობების სივრცე
+        </h1>
+        <p class="text-[#6B7C69] text-sm md:text-base">
+          ნახე გემრიელობები ქალაქების მიხედვით
+        </p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- magnolia - kutaisi -->
+        <a
+          href="../whatToEat/kutaisi-magnolia.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="
+              background-image: url(../images/whatToEat/kutaisi-magnolia.png);
+            "
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">მაგნოლია</h3>
+            <p class="text-sm text-white/80 line-clamp-2">ქუთაისი</p>
+          </div>
+        </a>
+
+        <!-- ode - tbilisi -->
+        <a
+          href="../whatToEat/tbilisi-ode.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/whatToEat/tbilisi-ode.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">ოდე</h3>
+            <p class="text-sm text-white/80 line-clamp-2">თბილისი</p>
+          </div>
+        </a>
+
+        <!-- batumisguli - batumi -->
+        <a
+          href="../whatToEat/batumi-batumisGuli.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="
+              background-image: url(../images/whatToEat/batumi-batumisguli.png);
+            "
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">ბათუმის გული</h3>
+            <p class="text-sm text-white/80 line-clamp-2">ბათუმი</p>
+          </div>
+        </a>
+      </div>
+    </main>
+
     <!-- footer -->
     <footer
       class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"

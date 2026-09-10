@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>გამოხატე შენი აზრი - განტვირთვის სივრცე</title>
+    <title>საათი - უსაქმურობა</title>
     <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./clock.js" defer></script>
     <style>
       body {
         background-color: #f7f9f6;
@@ -22,7 +23,6 @@
         scrollbar-width: none;
       }
     </style>
-    <script src="../scripts/feedBack.js" defer></script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -61,7 +61,7 @@
           </p>
         </div>
 
-        <!-- Right side: Links (in a box) and Dark/Light mode button -->
+        <!-- Right side: Links (in a box)-->
         <div class="flex items-center gap-4">
           <!-- Text embedded in a nice background frame -->
           <nav
@@ -75,7 +75,7 @@
             <span class="text-[#A3B1A0]">•</span>
             <a
               href="../views/feedBack.html"
-              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50 bg-[#D2E2D0] text-[#2C3E2B]"
+              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50"
               >გამოხატე შენი აზრი</a
             >
           </nav>
@@ -121,7 +121,7 @@
           >
           <a
             href="../views/Idleness.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
             >უსაქმურობა</a
           >
           <a
@@ -138,120 +138,83 @@
       </div>
     </header>
 
-    <!-- ================= feedBack ================= -->
-    <main class="max-w-xl mx-auto px-6 py-16">
-      <!-- title -->
-      <div class="text-center mb-10">
-        <h1 class="text-3xl font-light text-[#2C3E2B] mb-2">
-          გამოხატე შენი აზრი
-        </h1>
-        <p class="text-[#6C7A6A] text-sm">
-          შენი გამოხმაურება გვეხმარება გავხდეთ უკეთესები. გაგვიზიარე შენი
-          მოსაზრება!
-        </p>
-      </div>
-
-      <!-- form card -->
-      <div class="bg-white p-8 rounded-3xl shadow-sm border border-[#EBEFEA]">
-        <!-- Form to connect to a Google Form -->
-        <form
-          id="feedbackForm"
-          action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScxkxbqCH9VZymZIDk6Vzu7tfuqcav9ZmmJ5iF0jQT-DpxwyQ/formResponse"
-          method="POST"
-          target="hidden_iframe"
-          class="space-y-5"
+    <!-- ================= Third Sub-Header (Idleness Features Submenu) ================= -->
+    <div
+      class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6 mb-10"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
+      >
+        <!-- Fireplace Link (Active) -->
+        <a
+          href="./firePlace.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
         >
-          <!-- 1. name -->
-          <div>
-            <label
-              class="block text-xs font-semibold text-[#5C6B5E] uppercase tracking-wider mb-2"
-              >სახელი</label
-            >
-            <input
-              type="text"
-              name="entry.1262327055"
-              placeholder="შენი სახელი..."
-              class="w-full px-4 py-3 rounded-xl border border-[#D8E2D6] bg-[#F9FBF8] text-[#3B4A3F] focus:outline-none focus:border-[#8FA38D] transition text-sm"
-            />
-          </div>
+          ბუხარი
+        </a>
 
-          <!-- 2. mail -->
-          <div>
-            <label
-              class="block text-xs font-semibold text-[#5C6B5E] uppercase tracking-wider mb-2"
-              >მეილი
-              <span class="font-normal text-[#95A593]"
-                >(არასავალდებულო)</span
-              ></label
-            >
-            <input
-              type="email"
-              name="entry.135671716"
-              placeholder="your@gmail.com"
-              class="w-full px-4 py-3 rounded-xl border border-[#D8E2D6] bg-[#F9FBF8] text-[#3B4A3F] focus:outline-none focus:border-[#8FA38D] transition text-sm"
-            />
-          </div>
+        <!-- Windows Update Link -->
+        <a
+          href="./windowsUpdate.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          Windows Update
+        </a>
 
-          <!-- 3. What would you tell us? (With strict validation) -->
-          <div>
-            <label
-              class="block text-xs font-semibold text-[#5C6B5E] uppercase tracking-wider mb-2"
-              >რას გვეტყოდი? <span class="text-red-400">*</span></label
-            >
-            <textarea
-              id="messageInput"
-              name="entry.159739580"
-              rows="4"
-              placeholder="დაწერე შენი აზრი აქ..."
-              class="w-full px-4 py-3 rounded-xl border border-[#D8E2D6] bg-[#F9FBF8] text-[#3B4A3F] focus:outline-none focus:border-[#8FA38D] transition text-sm resize-none"
-            ></textarea>
-            <!-- Error text -->
-            <p id="errorText" class="text-xs text-red-500 mt-1 hidden">
-              გთხოვთ, შეავსოთ ეს ველი („რას გვეტყოდი“), სანამ გაგზავნით.
-            </p>
-          </div>
-
-          <!-- button -->
-          <button
-            type="submit"
-            class="w-full bg-[#3B4A3F] text-white py-3.5 rounded-xl font-medium hover:bg-[#2C382A] transition shadow-sm cursor-pointer text-sm"
-          >
-            გაგზავნა
-          </button>
-        </form>
-
-        <!-- The message will be sent successfully. -->
-        <div id="successMessage" class="hidden text-center py-8 space-y-3">
-          <div class="text-4xl">🌿</div>
-          <h3 class="text-lg font-medium text-[#3B4A3F]">
-            მადლობა გამოხმაურებისთვის!
-          </h3>
-          <p class="text-xs text-[#6C7A6A]">შენი აზრი წარმატებით გაიგზავნა.</p>
-          <button
-            onclick="resetForm()"
-            class="mt-4 text-xs bg-[#EAEFE9] text-[#3B4A3F] px-4 py-2 rounded-lg hover:bg-[#D8E2D6] transition"
-          >
-            ახლის გაგზავნა
-          </button>
-        </div>
-
-        <!-- Hidden iframe to safely receive the response (to prevent page redirection) -->
-        <iframe
-          name="hidden_iframe"
-          id="hidden_iframe"
-          style="display: none"
-          onload="
-            if (submitted) {
-              showSuccess();
-            }
-          "
-        ></iframe>
+        <!-- Clock Link -->
+        <a
+          href="./clock.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#E3EBE1] text-[#2C382A] shadow-sm border border-[#D2DDD0] transition"
+        >
+          საათი
+        </a>
       </div>
-    </main>
+    </div>
+
+    <!-- საათის ვიზუალი -->
+    <div
+      id="clockContainer"
+      class="relative bg-white/80 backdrop-blur-md border border-[#E2E8E0] shadow-md rounded-3xl p-12 sm:p-20 w-full max-w-4xl mx-auto text-center transition-all flex flex-col items-center justify-center"
+    >
+      <!-- სრულ ეკრანზე გაშლის ღილაკი -->
+      <button
+        id="fullscreenBtn"
+        onclick="toggleFullscreen()"
+        class="absolute top-6 right-6 p-3 rounded-xl bg-[#E3EBE1] hover:bg-[#D2DDD0] text-[#3B4A3F] transition shadow-sm cursor-pointer"
+        title="სრულ ეკრანზე გაშლა"
+      >
+        <svg
+          id="fullscreenIcon"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 8V4m0 0h4M4 4l5 5m11-5v4m0-4h-4m4 4l-5-5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+          />
+        </svg>
+      </button>
+
+      <div
+        id="clock"
+        class="text-7xl sm:text-9xl font-bold text-[#3B4A3F] tracking-wider mb-6"
+      >
+        00:00:00
+      </div>
+
+      <div id="date" class="text-xl sm:text-2xl font-medium text-[#687A66]">
+        იტვირთება თარიღი...
+      </div>
+    </div>
 
     <!-- footer -->
     <footer
-      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"
+      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0] mt-10"
     >
       <p>© 2026 სიმშვიდის სივრცე. ყველა უფლება დაცულია.</p>
     </footer>

@@ -12,15 +12,17 @@
         color: #4a5568;
         font-family: sans-serif;
       }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
     <script src="../scripts/ldleness.js" defer></script>
-    <script>
-      // Check localStorage immediately on page load to prevent flashing
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.style.backgroundColor = "#1A211C";
-        document.body.style.color = "#E2E8E0";
-      }
-    </script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -119,7 +121,7 @@
           >
           <a
             href="../views/Idleness.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
             >უსაქმურობა</a
           >
           <a
@@ -135,11 +137,85 @@
         </nav>
       </div>
     </header>
-    <div class="h-screen flex flex-col items-center pt-20">
-      <h1 class="text-4xl font-light text-[#2C3E2B] mb-6">
-        შიგთავსი მალე დაემატება
-      </h1>
-    </div>
+
+    <!-- ================= Main Content / Cards Section ================= -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <div class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-light text-[#2C3E2B] mb-3">
+          უსაქმურობის სივრცე
+        </h1>
+        <p class="text-[#6B7C69] text-sm md:text-base">
+          აირჩიე შენთვის სასურველი მიმართულება და განიტვირთე
+        </p>
+      </div>
+
+      <!-- 3 Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <a
+          href="../Idleness/firePlace.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/Idleness/firePlace.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">ბუხარი</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              აირჩიე სითბო და სიმყუდროვე სრულ ეკრანზე
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a
+          href="../Idleness/windowsUpdate.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/Idleness/WindowsUpdate.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">Windows Update</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              გაუშვი განახლება სრულ ეკრანზე და ყველაფერი Microsoft ს დააბრალე
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a
+          href="../Idleness/clock.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/Idleness/clock.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">საათი</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              აკონტროლე წამები სრულ ეკრანზე.
+            </p>
+          </div>
+        </a>
+      </div>
+    </main>
+
     <!-- footer -->
     <footer
       class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"

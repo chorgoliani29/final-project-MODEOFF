@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="ka" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steam - გაიმარტივე ცხოვრება</title>
+    <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        background-color: #f7f9f6;
+        color: #4a5568;
+        font-family: sans-serif;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F4F6F4] text-[#2C3E50]">
+    <!-- ================= First Header (Static) ================= -->
+    <header
+      class="w-full bg-[#EAEFE9] border-b border-[#D8E2D6] py-4 px-6 transition-colors duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <!-- Left side: 3 logos with links -->
+        <div class="flex items-center gap-4">
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/facebook.svg" alt="facebook link" />
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/instagram.svg" alt="instagram link" />
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/tiktok.svg" alt="tikTok link" />
+          </a>
+        </div>
+
+        <!-- Center: Centered text -->
+        <div class="text-center">
+          <p class="text-sm tracking-wide text-[#5C6B5E] font-medium">
+            შეისვენე და აღიდგინე ენერგია
+          </p>
+        </div>
+
+        <!-- Right side: Links (in a box)-->
+        <div class="flex items-center gap-4">
+          <!-- Text embedded in a nice background frame -->
+          <nav
+            class="flex items-center gap-2 bg-[#DFE7DE] px-4 py-1.5 rounded-full shadow-inner"
+          >
+            <a
+              href="../views/aboutUs.html"
+              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50"
+              >ჩვენს შესახებ</a
+            >
+            <span class="text-[#A3B1A0]">•</span>
+            <a
+              href="../views/feedBack.html"
+              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50"
+              >გამოხატე შენი აზრი</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= Second Header (Sticky / follows the page) ================= -->
+    <header
+      class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E2E8E0] shadow-sm transition-all duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <!-- Left side: Main logo -->
+        <a href="../index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-10 h-10 rounded-xl bg-[#E3EBE1] flex items-center justify-center group-hover:bg-[#D2DDD0] transition"
+          >
+            <img src="../logo/mainLogo.svg" alt="mainLogo" />
+          </div>
+          <span class="font-semibold text-lg text-[#3B4A3F] tracking-tight"
+            >MODE:OFF</span
+          >
+        </a>
+
+        <!-- Right side  -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
+          <a
+            href="../views/quizzes.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >ქვიზნი</a
+          >
+          <a
+            href="../views/eyeRest.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
+          >
+          <a
+            href="../views/games.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თამაშები</a
+          >
+          <a
+            href="../views/Idleness.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >უსაქმურობა</a
+          >
+          <a
+            href="../views/simplifyYourLife.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
+            >გაიმარტივე ცხოვრება</a
+          >
+          <a
+            href="../views/whatToEat.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >რა ვჭამო?</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= Third Sub-Header (Idleness Features Submenu) ================= -->
+    <div
+      class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6 mb-10"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
+      >
+        <!-- Web Development link -->
+        <a
+          href="./webDevelopment.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          საიტის აწყობა
+        </a>
+
+        <!-- AI Link -->
+        <a
+          href="./AI.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          AI ხელსაწყოები
+        </a>
+
+        <!-- Steam Link -->
+        <a
+          href="./steam.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#E3EBE1] text-[#2C382A] shadow-sm border border-[#D2DDD0] transition"
+        >
+          Steam
+        </a>
+      </div>
+    </div>
+
+    <!-- ================= Main Content ================= -->
+    <main class="max-w-4xl mx-auto px-6 mb-16">
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#E2E8E0]">
+        <!-- Steam Header Section (Logo + Title linking to official website) -->
+        <div
+          class="flex items-center gap-4 mb-8 pb-6 border-b border-[#E2E8E0]"
+        >
+          <a
+            href="https://store.steampowered.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 group"
+          >
+            <img
+              src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/767/header.jpg"
+              alt="Steam Logo"
+              class="w-16 h-16 object-cover rounded-xl shadow-sm group-hover:opacity-90 transition"
+            />
+            <span
+              class="text-2xl font-bold text-[#2C3E50] group-hover:text-[#1b2838] transition"
+              >Steam</span
+            >
+          </a>
+        </div>
+
+        <!-- Description text -->
+        <div class="space-y-6 text-[#4A5568] leading-relaxed">
+          <p>
+            <strong>Steam</strong> არის ციფრული დისტრიბუციის პლატფორმა, რომელიც
+            Valve Corporation-მა 2003 წელს შექმნა. ის წარმოადგენს უდიდეს ონლაინ
+            მაღაზიასა და სოციალურ ქსელს ვიდეო თამაშების მოთამაშეებისთვის, სადაც
+            შესაძლებელია თამაშების შეძენა, ჩამოტვირთვა, განახლება და მეგობრებთან
+            ერთად თამაში.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[#2C3E50] pt-4">
+            რატომ უნდა გამოვიყენოთ Steam?
+          </h3>
+
+          <ul class="space-y-3 list-disc list-inside">
+            <li>
+              <strong>უზარმაზარი ბიბლიოთეკა:</strong> პლატფორმაზე თავმოყრილია
+              ათასობით თამაში, დაწყებული გიგანტური სტუდიების AAA პროექტებიდან,
+              დასრულებული ინდი (დამოუკიდებელი) დეველოპერების შემოქმედებით.
+            </li>
+            <li>
+              <strong>ფასდაკლებები და გაყიდვები:</strong> Steam ცნობილია თავისი
+              რეგულარული სეზონური ფასდაკლებებით (მაგალითად, ზაფხულის და ზამთრის
+              გაყიდვები), სადაც თამაშების შეძენა ძალიან იაფად, 75%-იანი და მეტი
+              ფასდაკლებითაა შესაძლებელი.
+            </li>
+            <li>
+              <strong>ავტომატური განახლებები:</strong> პლატფორმა თავად ზრუნავს
+              შენს კოლექციაში არსებული ყველა თამაშის განახლებაზე, რაც ამარტივებს
+              პროცესს და გამორიცხავს ფაილების ხელით ძებნას.
+            </li>
+            <li>
+              <strong>Steam Cloud:</strong> შენი თამაშის სეივები (შენახული
+              პროგრესი) ინახება ღრუბელში, რაც საშუალებას გაძლევს თამაში სხვა
+              კომპიუტერიდანაც ზუსტად იმ ადგილიდან განაგრძო, სადაც შეჩერდი.
+            </li>
+            <li>
+              <strong>სოციალური სივრცე:</strong> მარტივად შეგიძლია მეგობრების
+              დამატება, მათთან ერთად ონლაინ თამაში, ხმოვან ჩატში საუბარი,
+              თამაშში მიღწევების (Achievements) გაზიარება და სავაჭრო მოედანზე
+              (Community Market) ნივთების გაცვლა/გაყიდვა.
+            </li>
+            <li>
+              <strong>Steam Workshop:</strong> საზოგადოების მიერ შექმნილი
+              დამატებების, მოდების (Mods) და კარტების მარტივად ინსტალაციის
+              შესაძლებლობა.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- footer -->
+    <footer
+      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0] mt-10"
+    >
+      <p>© 2026 სიმშვიდის სივრცე. ყველა უფლება დაცულია.</p>
+    </footer>
+  </body>
+</html>

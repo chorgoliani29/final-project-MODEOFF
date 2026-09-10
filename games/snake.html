@@ -1,17 +1,28 @@
 <!doctype html>
-<html lang="ka">
+<html lang="ka" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snake - თამაშები</title>
+    <title>SNAKE - თამაშები</title>
     <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="./snake.js" defer></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
-    </script>
+    <style>
+      body {
+        background-color: #f7f9f6;
+        color: #4a5568;
+        font-family: sans-serif;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -52,7 +63,6 @@
 
         <!-- Right side: Links (in a box) -->
         <div class="flex items-center gap-4">
-          <!-- Text embedded in a nice background frame -->
           <nav
             class="flex items-center gap-2 bg-[#DFE7DE] px-4 py-1.5 rounded-full shadow-inner"
           >
@@ -91,7 +101,7 @@
           >
         </a>
 
-        <!-- Right side  -->
+        <!-- Right side -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
             href="../views/quizzes.html"
@@ -105,7 +115,7 @@
           >
           <a
             href="../views/games.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            class="px-3 py-2 rounded-lg text-sm font-medium bg-[#E3EBE1] text-[#2C382A] transition"
             >თამაშები</a
           >
           <a
@@ -127,72 +137,96 @@
       </div>
     </header>
 
+    <!-- ================= Third Sub-Header (Idleness Features Submenu) ================= -->
+    <div class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6">
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
+      >
+        <!-- X და O -->
+        <a
+          href="./ticTacToe.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          X და O
+        </a>
+
+        <!-- SNAKE Link -->
+        <a
+          href="./snake.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#E3EBE1] text-[#2C382A] shadow-sm border border-[#D2DDD0] transition"
+        >
+          SNAKE
+        </a>
+
+        <!-- Chrom Dino Link -->
+        <a
+          href="./chromeDino.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          Chrome Dino
+        </a>
+      </div>
+    </div>
+
     <!-- Main Content / Game Area -->
-    <!-- Main Content / Game Area -->
-    <main class="flex flex-col items-center justify-center px-4 py-4 flex-grow">
-      <div class="text-center mb-3">
-        <h1 class="text-2xl font-bold text-[#3B4A3F] dark:text-[#F0F4F0] mb-1">
-          Snake
-        </h1>
-        <p class="text-xs text-[#5C6B5E] dark:text-[#C5D9C3]">
-          მართე ისრებით (Arrows) ან W, A, S, D კლავიშებით
+    <main class="flex flex-col items-center justify-center px-4 py-8 flex-grow">
+      <div class="text-center mb-4">
+        <h1 class="text-2xl font-bold text-[#3B4A3F] mb-1">Snake</h1>
+        <p class="text-xs text-[#5C6B5E]">
+          მართე ისრებით ან W, A, S, D კლავიშებით , პაუზა space
         </p>
       </div>
 
       <!-- Scoreboard & Wall Mode Option -->
       <div
-        class="flex flex-wrap justify-center gap-4 mb-4 text-sm font-semibold items-center"
+        class="flex flex-wrap justify-center gap-4 mb-6 text-sm font-semibold items-center"
       >
         <div
-          class="bg-white dark:bg-[#324338] px-4 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm"
+          class="bg-white px-4 py-2 rounded-xl border border-[#E2E8E0] shadow-sm"
         >
           ქულა:
-          <span id="score" class="text-[#3B4A3F] dark:text-[#F0F4F0]">0</span>
+          <span id="score" class="text-[#3B4A3F]">0</span>
         </div>
         <div
-          class="bg-white dark:bg-[#324338] px-4 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm"
+          class="bg-white px-4 py-2 rounded-xl border border-[#E2E8E0] shadow-sm"
         >
           თქვენი რეკორდი:
-          <span id="highScore" class="text-[#3B4A3F] dark:text-[#F0F4F0]"
-            >0</span
-          >
+          <span id="highScore" class="text-[#3B4A3F]">0</span>
         </div>
         <!-- Wall Mode Toggle Switch -->
         <div
-          class="bg-white dark:bg-[#324338] px-3 py-1.5 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-sm flex items-center gap-2"
+          class="bg-white px-3.5 py-2 rounded-xl border border-[#E2E8E0] shadow-sm flex items-center gap-2.5"
         >
-          <span class="text-xs text-[#5C6B5E] dark:text-[#C5D9C3]"
-            >კედელში გასვლა:</span
-          >
+          <span class="text-xs text-[#5C6B5E]">კედელში გასვლა:</span>
           <button
             id="wallToggle"
-            class="w-10 h-5 bg-[#D8E2D6] dark:bg-[#232F27] rounded-full relative transition-colors duration-200 cursor-pointer focus:outline-none"
+            class="w-10 h-5 bg-[#D8E2D6] rounded-full relative transition-colors duration-200 cursor-pointer focus:outline-none"
           >
             <div
               id="wallToggleCircle"
-              class="w-4 h-4 bg-[#3B4A3F] dark:bg-[#C5D9C3] rounded-full absolute top-0.5 left-0.5 transition-transform duration-200"
+              class="w-4 h-4 bg-[#3B4A3F] rounded-full absolute top-0.5 left-0.5 transition-transform duration-200"
             ></div>
           </button>
         </div>
       </div>
 
-      <!-- Game Container: Canvas and Leaderboard side by side with gap & centered alignment -->
+      <!-- Game Container: Canvas and Leaderboard side by side -->
       <div class="flex flex-col md:flex-row items-center justify-center gap-6">
-        <!-- Game Board (Canvas) - 90-degree corners -->
+        <!-- Game Board (Canvas) -->
         <div
-          class="relative bg-white dark:bg-[#324338] p-3 rounded-none border border-[#EBEFEA] dark:border-[#42574A] shadow-md"
+          class="relative bg-white p-3 rounded-2xl border border-[#E2E8E0] shadow-sm"
         >
           <canvas
             id="snakeCanvas"
             width="400"
             height="400"
-            class="rounded-none bg-[#F9FBF9] dark:bg-[#1E2721] block"
+            class="rounded-xl bg-[#F9FBF9] block"
           ></canvas>
 
           <!-- Game Overlay / Start Screen -->
           <div
             id="gameOverlay"
-            class="absolute inset-0 bg-black/40 backdrop-blur-[2px] rounded-none flex flex-col items-center justify-center text-white transition-opacity"
+            class="absolute inset-0 bg-black/40 backdrop-blur-[2px] rounded-2xl flex flex-col items-center justify-center text-white transition-opacity"
           >
             <h2
               id="overlayText"
@@ -209,31 +243,25 @@
           </div>
         </div>
 
-        <!-- Daily Leaderboard Widget (Separated and vertically centered) -->
+        <!-- Daily Leaderboard Widget -->
         <div
-          class="bg-white dark:bg-[#324338] p-4 rounded-xl border border-[#EBEFEA] dark:border-[#42574A] shadow-md w-full md:w-48 text-xs flex flex-col justify-center gap-3 self-center"
+          class="bg-white p-5 rounded-2xl border border-[#E2E8E0] shadow-sm w-full md:w-52 text-xs flex flex-col justify-center gap-3.5 self-center"
         >
           <span
-            class="font-bold text-sm text-[#3B4A3F] dark:text-[#F0F4F0] border-b border-[#EBEFEA] dark:border-[#42574A] pb-2 text-center"
+            class="font-bold text-sm text-[#3B4A3F] border-b border-[#E2E8E0] pb-2 text-center"
           >
             ლიდერბორდი
           </span>
           <div class="flex flex-col gap-1">
-            <span class="text-[#5C6B5E] dark:text-[#C5D9C3]"
-              >დღის რეკორდი:</span
-            >
-            <span
-              id="dailyHighScore"
-              class="font-bold text-sm text-[#3B4A3F] dark:text-[#F0F4F0]"
+            <span class="text-[#5C6B5E]">დღის რეკორდი:</span>
+            <span id="dailyHighScore" class="font-bold text-sm text-[#3B4A3F]"
               >0</span
             >
           </div>
           <div class="flex flex-col gap-1">
-            <span class="text-[#5C6B5E] dark:text-[#C5D9C3]">შენი ადგილი:</span>
-            <span
-              id="userRank"
-              class="font-bold text-sm text-[#3B4A3F] dark:text-[#F0F4F0]"
-              >-</span
+            <span class="text-[#5C6B5E]">შენი ადგილი:</span>
+            <span id="userRank" class="font-bold text-sm text-[#3B4A3F]"
+              >–</span
             >
           </div>
         </div>
@@ -242,7 +270,7 @@
 
     <!-- Footer -->
     <footer
-      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"
+      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0] mt-10"
     >
       <p>© 2026 სიმშვიდის სივრცე. ყველა უფლება დაცულია.</p>
     </footer>

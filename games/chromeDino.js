@@ -6,6 +6,11 @@ const highScoreEl = document.getElementById("high-score");
 const gameOverScreen = document.getElementById("game-over");
 const startBtn = document.getElementById("start-btn");
 
+// Leaderboard Elements
+const dailyBestScoreEl = document.getElementById("daily-best-score");
+const playerRankEl = document.getElementById("player-rank");
+const currentRankScoreEl = document.getElementById("current-rank-score");
+
 let score = 0;
 let highScore = 0;
 let isPlaying = false;
@@ -13,6 +18,9 @@ let frameCount = 0;
 let baseSpeed = 7;
 let gameSpeed = 7;
 let nextSpawnTime = 0;
+
+// Initialize Leaderboard on load
+initLeaderboard();
 
 let dino = {
   x: 70,
@@ -40,6 +48,49 @@ window.addEventListener("keydown", (e) => {
 
 canvas.addEventListener("click", jump);
 
+function initLeaderboard() {
+  const todayStr = new Date().toDateString();
+  let savedDate = localStorage.getItem("dino_lb_date");
+
+  // თუ ახალი დღე დაიწყო, ვანულებთ დღის რეკორდს
+  if (savedDate !== todayStr) {
+    localStorage.setItem("dino_lb_date", todayStr);
+    localStorage.setItem("dino_daily_best", "0");
+  }
+
+  let dailyBest = parseInt(localStorage.getItem("dino_daily_best")) || 0;
+  if (dailyBestScoreEl)
+    dailyBestScoreEl.textContent = String(dailyBest).padStart(5, "0");
+  if (currentRankScoreEl) currentRankScoreEl.textContent = "00000";
+  if (playerRankEl) playerRankEl.textContent = "-";
+}
+
+function updateLeaderboard(currentScore) {
+  const todayStr = new Date().toDateString();
+  let savedDate = localStorage.getItem("dino_lb_date");
+
+  if (savedDate !== todayStr) {
+    localStorage.setItem("dino_lb_date", todayStr);
+    localStorage.setItem("dino_daily_best", "0");
+  }
+
+  let dailyBest = parseInt(localStorage.getItem("dino_daily_best")) || 0;
+
+  if (currentScore > dailyBest) {
+    dailyBest = currentScore;
+    localStorage.setItem("dino_daily_best", dailyBest);
+  }
+
+  if (dailyBestScoreEl)
+    dailyBestScoreEl.textContent = String(dailyBest).padStart(5, "0");
+  if (currentRankScoreEl)
+    currentRankScoreEl.textContent = String(currentScore).padStart(5, "0");
+
+  if (playerRankEl) {
+    playerRankEl.textContent = currentScore > 0 ? "#1" : "-";
+  }
+}
+
 function jump() {
   if (!isPlaying) {
     resetGame();
@@ -62,6 +113,8 @@ function resetGame() {
   gameOverScreen.classList.add("hidden");
   startBtn.classList.add("hidden");
   isPlaying = true;
+
+  updateLeaderboard(score);
   loop();
 }
 
@@ -118,6 +171,8 @@ function update() {
       obstacles.splice(i, 1);
       score += 10;
       scoreEl.textContent = String(score).padStart(5, "0");
+      updateLeaderboard(score);
+
       if (score > highScore) {
         highScore = score;
         highScoreEl.textContent = "HI " + String(highScore).padStart(5, "0");

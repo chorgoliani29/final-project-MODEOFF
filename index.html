@@ -2,7 +2,7 @@
 <html lang="ka" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content5="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>განტვირთვის სივრცე</title>
     <link rel="icon" type="image/png" href="./logo/tabIcon.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -12,15 +12,17 @@
         color: #4a5568;
         font-family: sans-serif;
       }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
     <script src="./scripts/index.js" defer></script>
-    <script>
-      // Check localStorage immediately on page load to prevent flashing
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.style.backgroundColor = "#1A211C";
-        document.body.style.color = "#E2E8E0";
-      }
-    </script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->

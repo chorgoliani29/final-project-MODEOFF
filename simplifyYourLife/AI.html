@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ka" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI ხელსაწყოები - გაიმარტივე ცხოვრება</title>
+    <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      body {
+        background-color: #f7f9f6;
+        color: #4a5568;
+        font-family: sans-serif;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-[#F4F6F4] text-[#2C3E50]">
+    <!-- ================= First Header (Static) ================= -->
+    <header
+      class="w-full bg-[#EAEFE9] border-b border-[#D8E2D6] py-4 px-6 transition-colors duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <!-- Left side: 3 logos with links -->
+        <div class="flex items-center gap-4">
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/facebook.svg" alt="facebook link" />
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/instagram.svg" alt="instagram link" />
+          </a>
+          <a
+            href="#"
+            class="w-9 h-9 rounded-full bg-[#D8E2D6] flex items-center justify-center hover:bg-[#C4D3C2] transition shadow-sm"
+          >
+            <img src="../images/tiktok.svg" alt="tikTok link" />
+          </a>
+        </div>
+
+        <!-- Center: Centered text -->
+        <div class="text-center">
+          <p class="text-sm tracking-wide text-[#5C6B5E] font-medium">
+            შეისვენე და აღიდგინე ენერგია
+          </p>
+        </div>
+
+        <!-- Right side: Links (in a box)-->
+        <div class="flex items-center gap-4">
+          <!-- Text embedded in a nice background frame -->
+          <nav
+            class="flex items-center gap-2 bg-[#DFE7DE] px-4 py-1.5 rounded-full shadow-inner"
+          >
+            <a
+              href="../views/aboutUs.html"
+              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50"
+              >ჩვენს შესახებ</a
+            >
+            <span class="text-[#A3B1A0]">•</span>
+            <a
+              href="../views/feedBack.html"
+              class="text-xs font-medium text-[#4A5548] hover:text-[#2C3E2B] transition px-2 py-1 rounded-md hover:bg-[#D2DCF0]/50"
+              >გამოხატე შენი აზრი</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= Second Header (Sticky / follows the page) ================= -->
+    <header
+      class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-[#E2E8E0] shadow-sm transition-all duration-300"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
+      >
+        <!-- Left side: Main logo -->
+        <a href="../index.html" class="flex items-center gap-2 group">
+          <div
+            class="w-10 h-10 rounded-xl bg-[#E3EBE1] flex items-center justify-center group-hover:bg-[#D2DDD0] transition"
+          >
+            <img src="../logo/mainLogo.svg" alt="mainLogo" />
+          </div>
+          <span class="font-semibold text-lg text-[#3B4A3F] tracking-tight"
+            >MODE:OFF</span
+          >
+        </a>
+
+        <!-- Right side  -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
+          <a
+            href="../views/quizzes.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >ქვიზნი</a
+          >
+          <a
+            href="../views/eyeRest.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თვალის სიმშვიდე</a
+          >
+          <a
+            href="../views/games.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >თამაშები</a
+          >
+          <a
+            href="../views/Idleness.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >უსაქმურობა</a
+          >
+          <a
+            href="../views/simplifyYourLife.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
+            >გაიმარტივე ცხოვრება</a
+          >
+          <a
+            href="../views/whatToEat.html"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            >რა ვჭამო?</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= Third Sub-Header (Idleness Features Submenu) ================= -->
+    <div
+      class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6 mb-10"
+    >
+      <div
+        class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
+      >
+        <!-- Web Development link -->
+        <a
+          href="./webDevelopment.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          საიტის აწყობა
+        </a>
+
+        <!-- AI Link -->
+        <a
+          href="./AI.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#E3EBE1] text-[#2C382A] shadow-sm border border-[#D2DDD0] transition"
+        >
+          AI ხელსაწყოები
+        </a>
+
+        <!-- Steam Link -->
+        <a
+          href="./steam.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          Steam
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- ChatGPT -->
+        <a
+          href="https://chatgpt.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFFFFF] border border-[#E2E8E0] rounded-2xl p-6 transition-all duration-300 hover:border-[#A3B1A0] hover:shadow-md flex flex-col justify-between group"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#E3EBE1] border border-[#D2DDD0] flex items-center justify-center shrink-0 group-hover:bg-[#D2DDD0] transition"
+            >
+              <svg
+                class="w-6 h-6 text-[#556353]"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0451 6.0451 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0461 6.0461 0 0 0 .7427 7.0966 5.9807 5.9807 0 0 0 .5107 4.9107 6.0511 6.0511 0 0 0 6.5148 2.9A5.9807 5.9807 0 0 0 13.201 24a6.044 6.044 0 0 0 5.7758-4.1818 5.9897 5.9897 0 0 0 3.9977-2.9 6.0551 6.0551 0 0 0-.6926-7.0971zM13.201 22.25a4.298 4.298 0 0 1-2.2275-.6236l.1157-.067 4.3934-2.5366a.897.897 0 0 0 .4485-.776v-5.2662l3.7545 2.1673a.074.074 0 0 1 .0372.0646v5.0716a4.303 4.303 0 0 1-4.5228 1.9603zm-7.7788-3.413a4.275 4.275 0 0 1-.3657-2.2838l.1157.067 4.3934 2.5366a.894.894 0 0 0 .897 0l4.5627-2.6343v4.3346a.074.074 0 0 1-.0372.0646l-4.3934 2.5366a4.303 4.303 0 0 1-5.1727-2.6215zM3.666 9.8787a4.295 4.295 0 0 1 1.9165-2.0298l-.1157.067-4.3934 2.5366a.894.894 0 0 0-.4485.776v5.2662L.9768 14.321a.074.074 0 0 1-.0372-.0646V9.1848a4.303 4.303 0 0 1 2.7264-3.3061zm12.5606-4.6364l-4.3934-2.5366a4.303 4.303 0 0 1 5.5385 1.5796l-.1157-.067-4.3934 2.5366a.894.894 0 0 0-.897 0l-4.5627 2.6343V5.1587a.074.074 0 0 1 .0372-.0646l4.3934-2.5366a4.303 4.303 0 0 1 5.1727 2.6215zM7.5255 12.725l3.7545-2.1673V5.4861a.897.897 0 0 1 1.3455-.776l4.5627 2.6343v5.0716a4.303 4.303 0 0 1-6.4258 3.736l-3.2369-1.8688z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#2C3E50]">ChatGPT</h3>
+          </div>
+          <p class="text-sm text-[#5C6B5E] leading-relaxed text-center mb-6">
+            უნივერსალური ასისტენტი ტექსტების შესაქმნელად, იდეების გენერაციისთვის
+            და ყოველდღიური ამოცანების მოსაგვარებლად.
+          </p>
+          <div
+            class="pt-4 border-t border-[#E2E8E0] flex items-center justify-between text-xs text-[#8A9A88]"
+          >
+            <span>მოდელი: OpenAI</span>
+            <span class="text-[#556353] font-medium group-hover:underline"
+              >გადასვლა →</span
+            >
+          </div>
+        </a>
+
+        <!-- Claude -->
+        <a
+          href="https://claude.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFFFFF] border border-[#E2E8E0] rounded-2xl p-6 transition-all duration-300 hover:border-[#A3B1A0] hover:shadow-md flex flex-col justify-between group"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#E3EBE1] border border-[#D2DDD0] flex items-center justify-center shrink-0 group-hover:bg-[#D2DDD0] transition"
+            >
+              <svg
+                class="w-6 h-6 text-[#556353]"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.828 3.864c-.812-.34-1.85-.34-3.414-.34H9.586c-1.564 0-2.602 0-3.414.34a3.7 3.7 0 0 0-2.008 2.008c-.34.812-.34 1.85-.34 3.414v4.828c0 1.564 0 2.602.34 3.414a3.7 3.7 0 0 0 2.008 2.008c.812.34 1.85.34 3.414.34h4.828c1.564 0 2.602 0 3.414-.34a3.7 3.7 0 0 0 2.008-2.008c.34-.812.34-1.85.34-3.414V9.286c0-1.564 0-2.602-.34-3.414a3.7 3.7 0 0 0-2.008-2.008zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#2C3E50]">Claude</h3>
+          </div>
+          <p class="text-sm text-[#5C6B5E] leading-relaxed text-center mb-6">
+            ღრმა ანალიზის, დიდი ზომის დოკუმენტების დამუშავებისა და შემოქმედებითი
+            წერის მოწინავე ხელსაწყო.
+          </p>
+          <div
+            class="pt-4 border-t border-[#E2E8E0] flex items-center justify-between text-xs text-[#8A9A88]"
+          >
+            <span>მოდელი: Anthropic</span>
+            <span class="text-[#556353] font-medium group-hover:underline"
+              >გადასვლა →</span
+            >
+          </div>
+        </a>
+
+        <!-- Gemini -->
+        <a
+          href="https://gemini.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFFFFF] border border-[#E2E8E0] rounded-2xl p-6 transition-all duration-300 hover:border-[#A3B1A0] hover:shadow-md flex flex-col justify-between group"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#E3EBE1] border border-[#D2DDD0] flex items-center justify-center shrink-0 group-hover:bg-[#D2DDD0] transition"
+            >
+              <svg
+                class="w-6 h-6 text-[#556353]"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0C12 6.627 17.373 12 24 12c-6.627 0-12 5.373-12 12 0-6.627-5.373-12-12-12 6.627 0 12-5.373 12-12z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#2C3E50]">Gemini</h3>
+          </div>
+          <p class="text-sm text-[#5C6B5E] leading-relaxed text-center mb-6">
+            გუგლის მრავალფუნქციური ხელოვნური ინტელექტი რეალურ დროში ინფორმაციის
+            მოსაძებნად და კოდირებისთვის.
+          </p>
+          <div
+            class="pt-4 border-t border-[#E2E8E0] flex items-center justify-between text-xs text-[#8A9A88]"
+          >
+            <span>მოდელი: Google</span>
+            <span class="text-[#556353] font-medium group-hover:underline"
+              >გადასვლა →</span
+            >
+          </div>
+        </a>
+
+        <!-- Midjourney -->
+        <a
+          href="https://www.midjourney.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFFFFF] border border-[#E2E8E0] rounded-2xl p-6 transition-all duration-300 hover:border-[#A3B1A0] hover:shadow-md flex flex-col justify-between group"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#E3EBE1] border border-[#D2DDD0] flex items-center justify-center shrink-0 group-hover:bg-[#D2DDD0] transition"
+            >
+              <svg
+                class="w-6 h-6 text-[#556353]"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#2C3E50]">Midjourney</h3>
+          </div>
+          <p class="text-sm text-[#5C6B5E] leading-relaxed text-center mb-6">
+            უმაღლესი ხარისხის ვიზუალური ილუსტრაციებისა და მხატვრული დიზაინის
+            გენერატორი.
+          </p>
+          <div
+            class="pt-4 border-t border-[#E2E8E0] flex items-center justify-between text-xs text-[#8A9A88]"
+          >
+            <span>მოდელი: Midjourney</span>
+            <span class="text-[#556353] font-medium group-hover:underline"
+              >გადასვლა →</span
+            >
+          </div>
+        </a>
+
+        <!-- GitHub Copilot -->
+        <a
+          href="https://github.com/features/copilot"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFFFFF] border border-[#E2E8E0] rounded-2xl p-6 transition-all duration-300 hover:border-[#A3B1A0] hover:shadow-md flex flex-col justify-between group"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#E3EBE1] border border-[#D2DDD0] flex items-center justify-center shrink-0 group-hover:bg-[#D2DDD0] transition"
+            >
+              <svg
+                class="w-6 h-6 text-[#556353]"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#2C3E50]">GitHub Copilot</h3>
+          </div>
+          <p class="text-sm text-[#5C6B5E] leading-relaxed text-center mb-6">
+            პროგრამირების ინტელექტუალური ასისტენტი კოდის ავტომატური გენერაციისა
+            და სწრაფი რედაქტირებისთვის.
+          </p>
+          <div
+            class="pt-4 border-t border-[#E2E8E0] flex items-center justify-between text-xs text-[#8A9A88]"
+          >
+            <span>მოდელი: GitHub</span>
+            <span class="text-[#556353] font-medium group-hover:underline"
+              >გადასვლა →</span
+            >
+          </div>
+        </a>
+
+        <!-- Perplexity -->
+        <a
+          href="https://www.perplexity.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#FFFFFF] border border-[#E2E8E0] rounded-2xl p-6 transition-all duration-300 hover:border-[#A3B1A0] hover:shadow-md flex flex-col justify-between group"
+        >
+          <div class="flex items-center gap-4 mb-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-[#E3EBE1] border border-[#D2DDD0] flex items-center justify-center shrink-0 group-hover:bg-[#D2DDD0] transition"
+            >
+              <svg
+                class="w-6 h-6 text-[#556353]"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 3.6a8.4 8.4 0 1 1 0 16.8 8.4 8.4 0 0 1 0-16.8zm0 3.6a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#2C3E50]">Perplexity</h3>
+          </div>
+          <p class="text-sm text-[#5C6B5E] leading-relaxed text-center mb-6">
+            ინტელექტუალური საძიებო სისტემა, რომელიც რეალურ დროში აგროვებს და
+            აანალიზებს წყაროებს.
+          </p>
+          <div
+            class="pt-4 border-t border-[#E2E8E0] flex items-center justify-between text-xs text-[#8A9A88]"
+          >
+            <span>მოდელი: Perplexity</span>
+            <span class="text-[#556353] font-medium group-hover:underline"
+              >გადასვლა →</span
+            >
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer
+      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0] mt-10"
+    >
+      <p>© 2026 სიმშვიდის სივრცე. ყველა უფლება დაცულია.</p>
+    </footer>
+  </body>
+</html>

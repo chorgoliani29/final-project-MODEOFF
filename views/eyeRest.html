@@ -12,15 +12,17 @@
         color: #4a5568;
         font-family: sans-serif;
       }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
     <script src="../scripts/eyeRest.js" defer></script>
-    <script>
-      // Check localStorage immediately on page load to prevent flashing
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.style.backgroundColor = "#1A211C";
-        document.body.style.color = "#E2E8E0";
-      }
-    </script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -107,7 +109,7 @@
           >
           <a
             href="../views/eyeRest.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
             >თვალის სიმშვიდე</a
           >
           <a
@@ -133,11 +135,41 @@
         </nav>
       </div>
     </header>
-    <div class="h-screen flex flex-col items-center pt-20">
-      <h1 class="text-4xl font-light text-[#2C3E2B] mb-6">
-        შიგთავსი მალე დაემატება
+    <main class="max-w-5xl mx-auto px-6 py-12 flex flex-col items-center">
+      <h1
+        class="text-3xl md:text-4xl font-light text-[#2C3E2B] mb-4 text-center"
+      >
+        თვალის სიმშვიდე
       </h1>
-    </div>
+      <p class="text-center text-[#5C6B5E] max-w-2xl mb-8 leading-relaxed">
+        მოეშვით ეკრანთან ხანგრძლივი მუშაობის შემდეგ. ეს დამამშვიდებელი მუსიკა და
+        თვალის სამკურნალო სიხშირეები გეხმარებათ თვალის დაძაბულობის მოხსნაში,
+        სიმშვიდის პოვნასა და მხედველობის განტვირთვაში.
+      </p>
+
+      <div
+        class="w-full aspect-video rounded-2xl overflow-hidden shadow-lg bg-[#EAEFE9]"
+      >
+        <iframe
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/8W6YtE3PzTg"
+          title="Eye Pain Relief Music: Relaxing & Eye Healing Frequency, Strain Relief"
+          frameborder="0"
+          allow="
+            accelerometer;
+            autoplay;
+            clipboard-write;
+            encrypted-media;
+            gyroscope;
+            picture-in-picture;
+            web-share;
+          "
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+    </main>
+
     <!-- footer -->
     <footer
       class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"

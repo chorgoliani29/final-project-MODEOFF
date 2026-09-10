@@ -1,17 +1,28 @@
 <!doctype html>
-<html lang="ka">
+<html lang="ka" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chrome DINO - თამაშები</title>
+    <title>Chrome Dino - თამაშები</title>
     <link rel="icon" type="image/png" href="../logo/tabIcon.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="./chromeDino.js" defer></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-      };
-    </script>
+    <style>
+      body {
+        background-color: #f7f9f6;
+        color: #4a5568;
+        font-family: sans-serif;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -50,9 +61,8 @@
           </p>
         </div>
 
-        <!-- Right side: Links (in a box)  -->
+        <!-- Right side: Links (in a box) -->
         <div class="flex items-center gap-4">
-          <!-- Text embedded in a nice background frame -->
           <nav
             class="flex items-center gap-2 bg-[#DFE7DE] px-4 py-1.5 rounded-full shadow-inner"
           >
@@ -91,7 +101,7 @@
           >
         </a>
 
-        <!-- Right side  -->
+        <!-- Right side -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-3">
           <a
             href="../views/quizzes.html"
@@ -105,7 +115,7 @@
           >
           <a
             href="../views/games.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            class="px-3 py-2 rounded-lg text-sm font-medium bg-[#E3EBE1] text-[#2C382A] transition"
             >თამაშები</a
           >
           <a
@@ -126,77 +136,149 @@
         </nav>
       </div>
     </header>
-
-    <!-- Main Content -->
-    <main class="flex flex-col items-center justify-center px-4 py-2 flex-grow">
+    <!-- ================= Third Sub-Header (Idleness Features Submenu) ================= -->
+    <div class="w-full bg-[#F2F6F1] border-b border-[#E2EAE0] py-2.5 px-6">
       <div
-        class="max-w-4xl w-full bg-white dark:bg-[#324338] rounded-3xl shadow-md p-6 text-center border border-[#EBEFEA] dark:border-[#42574A] transition-colors duration-300"
+        class="max-w-7xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto"
       >
-        <h1 class="text-2xl font-bold mb-1 text-[#3B4A3F] dark:text-[#F0F4F0]">
+        <!-- X და O -->
+        <a
+          href="./ticTacToe.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          X და O
+        </a>
+
+        <!-- SNAKE Link -->
+        <a
+          href="./snake.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium text-[#556353] hover:bg-[#EAEFE9] hover:text-[#2C382A] transition"
+        >
+          SNAKE
+        </a>
+
+        <!-- Chrom Dino Link -->
+        <a
+          href="./chromeDino.html"
+          class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-[#E3EBE1] text-[#2C382A] shadow-sm border border-[#D2DDD0] transition"
+        >
           Chrome Dino
-        </h1>
-        <p class="text-xs text-[#5C6B5E] dark:text-[#C5D9C3] mb-4">
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content / Game Area -->
+    <main class="flex flex-col items-center justify-center px-4 py-8 flex-grow">
+      <div class="text-center mb-4">
+        <h1 class="text-2xl font-bold text-[#3B4A3F] mb-1">Chrome Dino</h1>
+        <p class="text-xs text-[#5C6B5E]">
           დააჭირეთ Space-ს ან ეკრანს გადასახტომად
         </p>
+      </div>
 
-        <!-- Scoreboard -->
+      <!-- Scoreboard -->
+      <div
+        class="flex flex-wrap justify-center gap-4 mb-6 text-sm font-semibold items-center"
+      >
         <div
-          class="flex justify-between items-center mb-4 px-4 py-2.5 bg-[#F9FBF9] dark:bg-[#232F27] rounded-2xl text-sm font-semibold border border-[#EBEFEA] dark:border-[#42574A]"
+          class="bg-white px-4 py-2 rounded-xl border border-[#E2E8E0] shadow-sm"
         >
-          <span class="text-[#5C6B5E] dark:text-[#C5D9C3]"
-            >ქულა:
-            <strong id="score" class="text-[#3B4A3F] dark:text-[#F0F4F0]"
-              >00000</strong
-            ></span
+          ქულა:
+          <span id="score" class="text-[#3B4A3F]">00000</span>
+        </div>
+        <div
+          class="bg-white px-4 py-2 rounded-xl border border-[#E2E8E0] shadow-sm"
+        >
+          რეკორდი:
+          <span id="high-score" class="text-[#3B4A3F]">00000</span>
+        </div>
+      </div>
+
+      <!-- Game Container: Canvas and Leaderboard side by side -->
+      <div class="flex flex-col lg:flex-row items-center justify-center gap-6">
+        <!-- Game Board (Canvas + Controls) -->
+        <div
+          class="relative bg-white p-4 rounded-2xl border border-[#E2E8E0] shadow-sm flex flex-col items-center"
+        >
+          <div class="relative">
+            <canvas
+              id="dinoCanvas"
+              width="700"
+              height="320"
+              class="rounded-xl bg-[#F9FBF9] block max-w-full h-auto cursor-pointer"
+            ></canvas>
+
+            <!-- Game Over Overlay -->
+            <div
+              id="game-over"
+              class="hidden absolute inset-0 bg-white/70 backdrop-blur-[2px] rounded-xl flex flex-col items-center justify-center"
+            >
+              <h2 class="text-xl font-bold mb-3 text-[#3B4A3F] tracking-wide">
+                თამაში დასრულდა
+              </h2>
+              <button
+                onclick="resetGame()"
+                class="px-6 py-2.5 rounded-xl bg-[#3B4A3F] hover:bg-[#2C3E2B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
+              >
+                ↻ თავიდან ცდა
+              </button>
+            </div>
+          </div>
+
+          <button
+            onclick="resetGame()"
+            id="start-btn"
+            class="mt-4 w-full px-6 py-2.5 rounded-xl bg-[#3B4A3F] hover:bg-[#2C3E2B] text-white text-xs font-semibold shadow-sm transition-all cursor-pointer"
           >
-          <span class="text-[#5C6B5E] dark:text-[#C5D9C3]"
-            >რეკორდი:
-            <strong id="high-score" class="text-[#3B4A3F] dark:text-[#F0F4F0]"
-              >00000</strong
-            ></span
-          >
+            თამაშის დაწყება
+          </button>
         </div>
 
-        <!-- Game Canvas Area -->
-        <div class="relative flex justify-center mb-4">
-          <canvas
-            id="dinoCanvas"
-            width="700"
-            height="320"
-            class="bg-[#F9FBF9] dark:bg-[#1E2721] rounded-2xl shadow-inner border border-[#EBEFEA] dark:border-[#42574A] cursor-pointer w-full max-w-full h-auto"
-          ></canvas>
-
-          <!-- Game Over Overlay -->
+        <!-- Daily Leaderboard Widget -->
+        <div
+          class="bg-white p-5 rounded-2xl border border-[#E2E8E0] shadow-sm w-full lg:w-56 text-xs flex flex-col justify-center gap-3.5 self-center"
+        >
           <div
-            id="game-over"
-            class="hidden absolute inset-0 bg-white/70 dark:bg-black/50 backdrop-blur-[2px] rounded-2xl flex flex-col items-center justify-center"
+            class="flex items-center justify-between border-b border-[#E2E8E0] pb-2 text-center"
           >
-            <h2
-              class="text-xl font-bold mb-3 text-[#3B4A3F] dark:text-white tracking-wide"
+            <span class="font-bold text-sm text-[#3B4A3F]"> ლიდერბორდი </span>
+            <span
+              class="text-[10px] text-[#5C6B5E] bg-[#EAEFE9] px-2 py-0.5 rounded-full"
+              >დღიური</span
             >
-              თამაში დასრულდა
-            </h2>
-            <button
-              onclick="resetGame()"
-              class="bg-[#3B4A3F] hover:bg-[#2C3E2B] dark:bg-[#5C7062] dark:hover:bg-[#4A5A4F] text-white px-6 py-2.5 rounded-xl transition-colors font-medium cursor-pointer shadow-sm text-xs"
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[#5C6B5E]">დღის რეკორდი:</span>
+            <span id="daily-best-score" class="font-bold text-sm text-[#3B4A3F]"
+              >00000</span
             >
-              ↻ თავიდან ცდა
-            </button>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[#5C6B5E]">შენი პოზიცია:</span>
+            <span id="player-rank" class="font-bold text-sm text-[#3B4A3F]"
+              >–</span
+            >
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-[#5C6B5E]">მიმდინარე შედეგი:</span>
+            <span
+              id="current-rank-score"
+              class="font-bold text-sm text-[#3B4A3F]"
+              >00000</span
+            >
+          </div>
+          <div class="pt-2 border-t border-[#E2E8E0] text-center">
+            <span class="text-[10px] text-[#8A9A88]">
+              განულდება ყოველ შუაღამეს
+            </span>
           </div>
         </div>
-
-        <button
-          onclick="resetGame()"
-          id="start-btn"
-          class="w-full bg-[#3B4A3F] hover:bg-[#2C3E2B] dark:bg-[#5C7062] dark:hover:bg-[#4A5A4F] text-white py-3 rounded-xl transition-colors font-semibold cursor-pointer shadow-sm text-xs"
-        >
-          თამაშის დაწყება
-        </button>
       </div>
     </main>
+
     <!-- Footer -->
     <footer
-      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"
+      class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0] mt-10"
     >
       <p>© 2026 სიმშვიდის სივრცე. ყველა უფლება დაცულია.</p>
     </footer>

@@ -12,15 +12,17 @@
         color: #4a5568;
         font-family: sans-serif;
       }
-    </style>
-    <script src="../scripts/simplifyYourLife.js" defer></script>
-    <script>
-      // Check localStorage immediately on page load to prevent flashing
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.style.backgroundColor = "#1A211C";
-        document.body.style.color = "#E2E8E0";
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
       }
-    </script>
+      html,
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+    <script src="../scripts/ldleness.js" defer></script>
   </head>
   <body class="bg-[#F4F6F4] text-[#2C3E50]">
     <!-- ================= First Header (Static) ================= -->
@@ -59,7 +61,7 @@
           </p>
         </div>
 
-        <!-- Right side: Links (in a box) -->
+        <!-- Right side: Links (in a box)-->
         <div class="flex items-center gap-4">
           <!-- Text embedded in a nice background frame -->
           <nav
@@ -124,7 +126,7 @@
           >
           <a
             href="../views/simplifyYourLife.html"
-            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition"
+            class="px-3 py-2 rounded-lg text-sm font-medium text-[#556353] hover:bg-[#F0F4EF] hover:text-[#2C382A] transition bg-[#E3EBE1] text-[#2C382A]"
             >გაიმარტივე ცხოვრება</a
           >
           <a
@@ -135,11 +137,87 @@
         </nav>
       </div>
     </header>
-    <div class="h-screen flex flex-col items-center pt-20">
-      <h1 class="text-4xl font-light text-[#2C3E2B] mb-6">
-        შიგთავსი მალე დაემატება
-      </h1>
-    </div>
+
+    <!-- ================= Main Content / Cards Section ================= -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+      <div class="text-center mb-10">
+        <h1 class="text-3xl md:text-4xl font-light text-[#2C3E2B] mb-3">
+          ცხოვრების გამარტივების სივრცე
+        </h1>
+        <p class="text-[#6B7C69] text-sm md:text-base">
+          დაათვალიერე პროდუქტები, რომლებიც ცხოვრებას გაგიმარტივებს
+        </p>
+      </div>
+
+      <!-- 3 Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <a
+          href="../simplifyYourLife/webDevelopment.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="
+              background-image: url(../images/simplifyYourLife/webDevelopment.png);
+            "
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">საიტის აწყობა</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              გააციფრულე შენი ბიზნესი
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a
+          href="../simplifyYourLife/AI.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/simplifyYourLife/AI.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">AI ხელსაწყოები</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              გაიგე რომელი რისთვის გამოდგება და გაიმარტივე ცხოვრება
+            </p>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a
+          href="../simplifyYourLife/steam.html"
+          class="block group relative rounded-2xl overflow-hidden border border-[#E2E8E0] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-80"
+        >
+          <div
+            class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+            style="background-image: url(../images/simplifyYourLife/steam.png)"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
+            ></div>
+          </div>
+          <div class="absolute inset-0 z-10 p-6 flex flex-col justify-end">
+            <h3 class="text-2xl font-medium text-white mb-2">Steam</h3>
+            <p class="text-sm text-white/80 line-clamp-2">
+              შეუერთდი გლობალურ სათამაშო საზოგადოებას
+            </p>
+          </div>
+        </a>
+      </div>
+    </main>
+
     <!-- footer -->
     <footer
       class="text-center py-8 text-sm text-[#8A9A88] border-t border-[#E2E8E0]"
